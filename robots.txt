@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /archives/
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /img/
+Disallow: /music/
+Disallow: /admin/s
+Sitemap: https://blog.bytewyrm.top/sitemap.xml
