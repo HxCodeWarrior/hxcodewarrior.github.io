@@ -10966,6 +10966,66 @@ figure.highlight .code-expand-btn:not(.expand-done) ~ pre {
 .waterfall.show {
   opacity: 1;
 }
+#content-inner .tag-Link {
+  background: var(--efu-secondbg);
+  border-radius: 12px !important;
+  display: flex;
+  border: 1px solid var(--style-border);
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-decoration: none !important;
+  color: var(--efu-fontcolor);
+  margin-bottom: 10px;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+#content-inner .tag-Link:hover {
+  border-color: var(--style-border-hover);
+  background-color: var(--efu-main);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+#content-inner .tag-Link .tag-link-tips {
+  color: var(--efu-fontcolor);
+  border-bottom: 1px solid var(--efu-gray);
+  padding-bottom: 4px;
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+#content-inner .tag-Link .tag-link-bottom {
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+#content-inner .tag-Link .tag-link-bottom .tag-link-left {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  background-size: cover;
+  border-radius: 25%;
+  background-color: var(--efu-card-bg);
+}
+#content-inner .tag-Link .tag-link-bottom .tag-link-right {
+  margin-left: 1rem;
+}
+#content-inner .tag-Link .tag-link-bottom .tag-link-right .tag-link-title {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+#content-inner .tag-Link .tag-link-bottom .tag-link-right .tag-link-sitename {
+  font-size: 0.7rem;
+  color: var(--efu-fontcolor);
+  font-weight: normal;
+  margin-top: 4px;
+  transition: color 0.3s;
+}
+#content-inner .tag-Link .tag-link-bottom .tag-link-right:hover .tag-link-sitename {
+  color: var(--efu-main);
+}
+#content-inner .tag-Link .tag-link-bottom i {
+  margin-left: auto;
+  color: var(--efu-fontcolor);
+}
 .mermaid {
   display: flex;
   justify-content: center;
