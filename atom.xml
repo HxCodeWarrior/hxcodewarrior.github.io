@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="/source/subscribe/pretty/atom.xsl" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ByteWyrm&#39;s Blog</title>
   <icon>https://blog.devnest.top/img/logo.ico</icon>
@@ -49,7 +49,7 @@
     <link href="https://blog.devnest.top/post/5b408a6c/"/>
     <id>https://blog.devnest.top/post/5b408a6c/</id>
     <published>2025-05-21T12:36:38.000Z</published>
-    <updated>2025-05-21T15:17:10.195Z</updated>
+    <updated>2025-05-23T06:27:28.551Z</updated>
     
     
       
