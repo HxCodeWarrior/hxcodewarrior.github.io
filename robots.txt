@@ -1,9 +1,34 @@
 User-agent: *
+
+# 允许访问
 Allow: /
-Disallow: /archives/
-Disallow: /categories/
-Disallow: /tags/
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /essay/
+Allow: /img/
+Allow: /music/
+Allow: /cookies/
+Allow: /copyright/
+Allow: /disclaimer/
+Allow: /privacy/
+
+# 不允许访问
+Disallow: /about/
+Disallow: /admin/
+Disallow: /footmap/
+Disallow: /custom/
+Disallow: /fonts/
 Disallow: /img/
 Disallow: /music/
-Disallow: /admin/s
+Disallow: /links/
+Disallow: /equipment/
+
+Disallow: /*.js
+Disallow: /*.css
+
 Sitemap: https://blog.bytewyrm.top/sitemap.xml
+Sitemap: https://blog.devnest.top/post-sitemap.xml	
+Sitemap: https://blog.devnest.top/page-sitemap.xml	
+Sitemap: https://blog.devnest.top/category-sitemap.xml	
+Sitemap: https://blog.devnest.top/tag-sitemap.xml
