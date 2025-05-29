@@ -6,7 +6,7 @@
   <link href="https://blog.devnest.top/atom.xml" rel="self"/>
   
   <link href="https://blog.devnest.top/"/>
-  <updated>2025-05-22T15:55:30.580Z</updated>
+  <updated>2025-05-29T09:18:19.163Z</updated>
   <id>https://blog.devnest.top/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2025ISCC区域赛MISC</title>
+    <link href="https://blog.devnest.top/post/83746943/"/>
+    <id>https://blog.devnest.top/post/83746943/</id>
+    <published>2025-05-29T06:37:39.000Z</published>
+    <updated>2025-05-29T09:18:19.163Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="CTF" scheme="https://blog.devnest.top/categories/CTF/"/>
+    
+    <category term="ISCC" scheme="https://blog.devnest.top/categories/CTF/ISCC/"/>
+    
+    <category term="MISC" scheme="https://blog.devnest.top/categories/CTF/ISCC/MISC/"/>
+    
+    
+    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
+    
+    <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
+    
+    <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2025ISCC区域赛WEB</title>
     <link href="https://blog.devnest.top/post/7f32bd2a/"/>
     <id>https://blog.devnest.top/post/7f32bd2a/</id>
     <published>2025-05-21T13:13:24.000Z</published>
-    <updated>2025-05-22T15:55:30.580Z</updated>
+    <updated>2025-05-29T12:02:54.568Z</updated>
     
     
       
@@ -41,6 +71,8 @@
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
     <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
+    
+    <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
   </entry>
   
@@ -100,9 +132,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
-    
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
     <category term="GZCTF" scheme="https://blog.devnest.top/tags/GZCTF/"/>
     
@@ -180,9 +212,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
-    
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
     <category term="GZCTF" scheme="https://blog.devnest.top/tags/GZCTF/"/>
     
@@ -212,9 +244,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
-    
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
     <category term="GZCTF" scheme="https://blog.devnest.top/tags/GZCTF/"/>
     
@@ -244,9 +276,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
-    
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
     <category term="GZCTF" scheme="https://blog.devnest.top/tags/GZCTF/"/>
     
@@ -274,9 +306,9 @@
     <category term="教程" scheme="https://blog.devnest.top/categories/VulFocus/%E9%9D%B6%E5%9C%BA/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
-    
     <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
+    
+    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
     
@@ -338,13 +370,13 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
-    
     <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
     
-    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
+    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
     <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
@@ -372,9 +404,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
-    
     <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
+    
+    <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
     <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
