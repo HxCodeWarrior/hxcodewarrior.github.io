@@ -10,6 +10,15 @@
     
     
     <url>
+        <loc>https://blog.devnest.top/message/</loc>
+        <lastmod>2025-05-29T13:06:41.535Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://blog.devnest.top/recentcomments/</loc>
         <lastmod>2025-05-26T09:31:06.309Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,15 +39,6 @@
     <url>
         <loc>https://blog.devnest.top/links/</loc>
         <lastmod>2025-05-24T07:57:41.041Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://blog.devnest.top/message/</loc>
-        <lastmod>2025-05-23T06:38:43.640Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

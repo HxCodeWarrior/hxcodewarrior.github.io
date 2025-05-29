@@ -393,3 +393,25 @@ img.rss-plan-icon {
   font-size: 14px;
   font-weight: 500;
 }
+
+/*留言板页面*/
+#form-wrap .no-lightbox.entered.loaded{
+  margin: 0 auto;
+  max-width:100%;
+}
+
+/*github-calendar*/
+#github-calendar {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px 0;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e3e8f7;
+}
+
+#github_container {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
