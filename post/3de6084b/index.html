@@ -1,0 +1,768 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2025华为HSD校园大使面试 | ByteWyrm's Blog</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=3.0.19"><!-- inject head--><link rel="canonical" href="https://blog.devnest.top/post/3de6084b/index.html"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><!-- aplayer--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><!-- swiper--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css"><!-- fancybox ui--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.min.css"><!-- katex--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><!-- Open Graph--><meta name="description" content="一、华为HSD校园大使介绍华为HSD校园大使计划，是华为开发者联盟面向高校开发者构建的技术生态先锋力量。作为连接全球领先科技企业与校园创新人才的核心纽带，这一计划自2019年启动以来，已在全国300余所高校培育出数千名技术新星，覆盖鸿蒙开发、华为云应用、HMS生态等前沿领域。 在华为开发者大会（HD"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="ByteWyrm's Blog"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/favicon.ico"><link rel="apple-touch-icon" href="/img/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '3.0.19' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>let mdate = "7-7,9-18,12-13";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
+    }
+}
+</script><script defer="" src="https://umami.blog.devnest.top/script.js" data-website-id="4bcd569c-89fd-41ea-8f6c-069147d305fd"></script><meta name="msvalidate.01" content="AEB290A58354692E1628A88973985063"><script type="text/javascript" src="/custom/js/baidu_statistics.js"></script><script type="text/javascript" src="/custom/js/51la_statistics.js"></script><link rel="stylesheet" href="/custom/css/custom.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><script data-pjax="" src="/custom/js/replycontent.js"></script><script src="/custom/js/welcome.js"></script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+            },
+            diffDateFormat: (selector) => {
+                selector.forEach(item => {
+                    const date = new Date(item.getAttribute('datetime') || item.textContent);
+                    item.textContent = (date.getMonth() + 1).toString()+'/'+date.getDate().toString();
+                });
+            },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":true,"path":"search.xml"},
+    runtime: '2024-09-01 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/static/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: true,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。","loading":"搜索中..."},"barrage":{"title":"热评"}},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: [],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: {"avatar":"https://gravatar.com/avatar","commentBarrage":true},
+    lightbox: 'fancybox',
+    right_menu: {"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载","music":{"start":"播放音乐","stop":"暂停音乐"},"barrage":{"open":"显示热评","close":"关闭热评"},"translate":true},
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: {"jump":"别走呀！","back":"ヾ(≧∇≦*)ゝHey, hey, you fell for it."},
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: true,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="ByteWyrm's Blog" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="ByteWyrm's Blog" type="application/rss+xml">
+</head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude fas fa-xmark"></i></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论<a class="recent-comment-more" href="/recentcomments/" title="最近评论"><i class="solitude fas fa-circle-chevron-right"></i></a></div></div><div class="console_recentcomments"></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/CTF/">CTF<sup>16</sup></a><a href="/tags/ISCC/">ISCC<sup>5</sup></a><a href="/tags/MOBILE/">MOBILE<sup>1</sup></a><a href="/tags/Writeup/">Writeup<sup>5</sup></a><a href="/tags/REVERSE/">REVERSE<sup>1</sup></a><a href="/tags/MISC/">MISC<sup>2</sup></a><a href="/tags/%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/">赛后总结<sup>1</sup></a><a href="/tags/PWN/">PWN<sup>1</sup></a><a href="/tags/%E7%AB%9E%E8%B5%9B/">竞赛<sup>4</sup></a><a href="/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/">国内竞赛<sup>4</sup></a><a href="/tags/WEB/">WEB<sup>3</sup></a><a href="/tags/SSRF/">SSRF<sup>1</sup></a><a href="/tags/CV/">CV<sup>1</sup></a><a href="/tags/Crypto/">Crypto<sup>1</sup></a><a href="/tags/%E9%9D%B6%E5%9C%BA/">靶场<sup>3</sup></a><a href="/tags/VulFocus/">VulFocus<sup>3</sup></a><a href="/tags/CTF%E5%B9%B3%E5%8F%B0/">CTF平台<sup>6</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/">教程<sup>8</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使<sup>2</sup></a><a href="/tags/%E6%8A%80%E5%B7%A7/">技巧<sup>1</sup></a><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/">面试<sup>1</sup></a><a href="/tags/%E5%8D%8E%E4%B8%BA/">华为<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验<sup>1</sup></a><a href="/tags/SSTI/">SSTI<sup>1</sup></a><a href="/tags/GZCTF/">GZCTF<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>2</sup></a><a href="/tags/CentOS/">CentOS<sup>1</sup></a><a href="/tags/Ubuntu/">Ubuntu<sup>1</sup></a></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="item"><a href="/archives/2025/05/"><span class="date">2025/05</span><div class="count-group"><span class="count">9</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2025/01/"><span class="date">2025/01</span><div class="count-group"><span class="count">6</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2024/12/"><span class="date">2024/12</span><div class="count-group"><span class="count">9</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/"><span class="date">全部文章</span><div class="count-group"><span class="count">24</span><span class="unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude fas fa-circle-half-stroke"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude fas fa-arrows-left-right-to-line"></i></span></div><div class="console-btn-item" id="consoleKeyboard" onclick="sco.switchKeyboard()"><span class="keyboardSwitch" title="键盘快捷键"><i class="solitude fas fa-keyboard"></i></span></div><div class="console-btn-item" id="consoleMusic" onclick="sco.musicToggle()"><span class="music-switch" title="音乐开关"><i class="solitude fas fa-compact-disc"></i></span></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"><span class="commentBarrage"><i class="solitude fas fa-comment"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/recentcomments/"><div class="headline">评论</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/CCSP_BootCamp" title="网安训练营"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="网安训练营"><span class="back-menu-item-text">网安训练营</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hxcodewarrior.github.io" title="个人博客"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="个人博客"><span class="back-menu-item-text">个人博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">小组件</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="友链申请"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链申请"><span class="back-menu-item-text">友链申请</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链状态"><span class="back-menu-item-text">友链状态</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitcalendar.api.devnest.top/api/?user=" title="Github热力图"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="Github热力图"><span class="back-menu-item-text">Github热力图</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  fas fa-chart-pie"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml"><i class="solitude  fas fa-link"></i><span>申请友链</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  fas fa-user-group"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="solitude  fas fa-gift"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/subscribe/"><i class="solitude  fas fa-rss"></i><span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/equipment/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/footmap/"><i class="solitude  fas fa-map-marked-alt"></i><span>游天下</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-user"></i><span>关于我</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  fas fa-comments"></i><span>留言板</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/CTF/">CTF<sup>16</sup></a><a href="/tags/ISCC/">ISCC<sup>5</sup></a><a href="/tags/MOBILE/">MOBILE<sup>1</sup></a><a href="/tags/Writeup/">Writeup<sup>5</sup></a><a href="/tags/REVERSE/">REVERSE<sup>1</sup></a><a href="/tags/MISC/">MISC<sup>2</sup></a><a href="/tags/%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/">赛后总结<sup>1</sup></a><a href="/tags/PWN/">PWN<sup>1</sup></a><a href="/tags/%E7%AB%9E%E8%B5%9B/">竞赛<sup>4</sup></a><a href="/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/">国内竞赛<sup>4</sup></a><a href="/tags/WEB/">WEB<sup>3</sup></a><a href="/tags/SSRF/">SSRF<sup>1</sup></a><a href="/tags/CV/">CV<sup>1</sup></a><a href="/tags/Crypto/">Crypto<sup>1</sup></a><a href="/tags/%E9%9D%B6%E5%9C%BA/">靶场<sup>3</sup></a><a href="/tags/VulFocus/">VulFocus<sup>3</sup></a><a href="/tags/CTF%E5%B9%B3%E5%8F%B0/">CTF平台<sup>6</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/">教程<sup>8</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使<sup>2</sup></a><a href="/tags/%E6%8A%80%E5%B7%A7/">技巧<sup>1</sup></a><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/">面试<sup>1</sup></a><a href="/tags/%E5%8D%8E%E4%B8%BA/">华为<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验<sup>1</sup></a><a href="/tags/SSTI/">SSTI<sup>1</sup></a><a href="/tags/GZCTF/">GZCTF<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>2</sup></a><a href="/tags/CentOS/">CentOS<sup>1</sup></a><a href="/tags/Ubuntu/">Ubuntu<sup>1</sup></a></div></div><span class="sidebar-menu-item-title">网站信息</span><div class="webinfo"><div class="webinfo-item"><div class="item-name">全站字数 :</div><div class="item-count">37k</div></div></div></div></div><!-- keyboard--><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keyboardList"><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">K</div></div><div class="keyContent"><div class="content">关闭快捷菜单</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">A</div></div><div class="keyContent"><div class="content">打开控制台</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">L</div></div><div class="keyContent"><div class="content">打开友链</div></div></div></div></div><script>const keyboard_addKeyup = (e) => {
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.remove('show');
+    }
+}
+
+const keyboard_addKeydown = (e) => {
+    const keyboards = [{"name":"关闭快捷菜单","key":"K","func":"keyboard"},{"name":"打开控制台","key":"A","sco":"showConsole"},{"name":"播放/暂停音乐","key":"M","sco":"musicToggle"},{"name":"打开友链","key":"L","url":"/links/"}];
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.add('show');
+    }
+
+    for (let i = 0; i < keyboards.length; i++) {
+        if (keyboards[i].url) {
+            if (keyboards[i].url.startsWith('http')) {
+                if (e.key === keyboards[i].key) {
+                    window.open(keyboards[i].url);
+                }
+            } else {
+                if (e.key === keyboards[i].key) {
+                    pjax.loadUrl(keyboards[i].url);
+                }
+            }
+        } else if (keyboards[i].sco) {
+            if (e.key === keyboards[i].key) {
+                sco[keyboards[i].sco]();
+            }
+        } else if (keyboards[i].func) {
+            if (e.key === keyboards[i].key) {
+                window[keyboards[i].func]();
+            }
+        }
+    }
+}
+
+function openKeyboard() {
+
+    window.addEventListener('keyup', keyboard_addKeyup);
+
+    window.addEventListener('keydown', keyboard_addKeydown);
+}
+function closeKeyboard() {
+
+    window.removeEventListener('keyup', keyboard_addKeyup);
+
+    window.removeEventListener('keydown', keyboard_addKeydown);
+}
+
+var sco_keyboards = localStorage.getItem('keyboard') === 'true'
+if (sco_keyboards) {
+    openKeyboard();
+    let keyboard = document.getElementById('consoleKeyboard');
+    keyboard?.classList.add('on');
+}</script><!-- righhtside--><div class="needEndHide" id="rightside"><div class="rs_hide"><button class="translate" type="button" title="简繁转换">简</button><button class="mode" type="button" title="显示模式切换" onclick="sco.switchDarkMode()"><i class="fas fa-circle-half-stroke"></i></button><button class="aside pc" type="button" title="侧边栏" onclick="sco.switchHideAside()"><i class="fas fa-arrows-alt-h"></i></button><button class="keyboard pc" type="button" title="键盘快捷键" onclick="sco.switchKeyboard()"><i class="fas fa-keyboard"></i></button></div><div class="rs_show"><button class="config" type="button" title="扩展" onclick="document.querySelector(&quot;.rs_hide&quot;).classList.toggle(&quot;show&quot;)"><i class="fas fa-gear fa-spin"></i></button><button class="mobile toc" type="button" title="目录" onclick="document.querySelector('#card-toc').classList.toggle('open')"><i class="fas fa-list"></i></button><button class="comment" type="button" title="评论" onclick="sco.scrollTo('post-comment')"><i class="fas fa-comment"></i></button><button class="barrage pc" type="button" title="弹" onclick="sco.switchCommentBarrage()"><span>弹</span></button><button class="top" type="button" title="返回顶部" onclick="sco.toTop()"><i class="fas fa-arrow-up"></i><span id="percent">0</span></button></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon solitude fas fa-bars-progress"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/CCSP_BootCamp" title="网安训练营"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="网安训练营"><span class="back-menu-item-text">网安训练营</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hxcodewarrior.github.io" title="个人博客"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="个人博客"><span class="back-menu-item-text">个人博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">小组件</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="友链申请"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链申请"><span class="back-menu-item-text">友链申请</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链状态"><span class="back-menu-item-text">友链状态</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitcalendar.api.devnest.top/api/?user=" title="Github热力图"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="Github热力图"><span class="back-menu-item-text">Github热力图</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">ByteWyrm</span><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">2025华为HSD校园大使面试</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  fas fa-chart-pie"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml"><i class="solitude  fas fa-link"></i><span>申请友链</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  fas fa-user-group"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="solitude  fas fa-gift"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/subscribe/"><i class="solitude  fas fa-rss"></i><span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/equipment/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/footmap/"><i class="solitude  fas fa-map-marked-alt"></i><span>游天下</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-user"></i><span>关于我</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  fas fa-comments"></i><span>留言板</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" title=""><i class="solitude fas fa-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="solitude fas fa-dice-d6"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer" title="搜索"><i class="solitude fas fa-magnifying-glass"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);" rel="external nofollow noreferrer"><label><i class="left"></i><i class="center"></i><i class="right"></i></label></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/background/essay/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95.jpg" alt="2025华为HSD校园大使面试"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>校园大使</span></a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>面试</span></a><a class="post-meta__tags" href="/tags/%E5%8D%8E%E4%B8%BA/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>华为</span></a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>面试经验</span></a></div></div></div></div><h1 class="post-title">2025华为HSD校园大使面试</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="发布于 2025-05-30 22:07:12"><i class="post-meta-icon solitude fas fa-calendar-days"></i><time datetime="2025-05-30T14:07:12.000Z">2025-05-30T14:07:12.000Z</time></span><span class="post-meta-wordcount"><i class="post-meta-icon solitude fas fa-file-word" title="文章字数"></i><span class="word-count">10.3k</span><span class="post-meta-separator"></span><i class="post-meta-icon solitude fas fa-clock" title="阅读耗时"></i><span>34 分钟</span></span><a class="post-meta-pv" href="/post/3de6084b/" title="文章热度"><i class="post-meta-icon solitude fas fa-fire-flame-curved"></i></a><span class="post-meta-commentcount" title="评论数" onclick="sco.scrollTo('post-comment')"><i class="solitude fas fa-comment"></i><a href="/post/3de6084b/#post-comment"></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content article-container"><h2 id="一、华为HSD校园大使介绍"><a href="#一、华为HSD校园大使介绍" class="headerlink" title="一、华为HSD校园大使介绍"></a>一、华为HSD校园大使介绍</h2><p>华为HSD校园大使计划，是华为开发者联盟面向高校开发者构建的技术生态先锋力量。作为连接全球领先科技企业与校园创新人才的核心纽带，这一计划自2019年启动以来，已在全国300余所高校培育出数千名技术新星，覆盖鸿蒙开发、华为云应用、HMS生态等前沿领域。</p>
+<p>在华为开发者大会（HDC）的舞台上，校园大使们曾与全球开发者共同见证鸿蒙系统的诞生，通过Codelabs训练营完成从理论到实践的跨越。例如兰州大学HSD大使王天一，凭借在鸿蒙开发中的突出表现，不仅获得<strong>耀星校园大使聘书</strong>，更通过校企合作平台直通华为终端部门实习。这类真实案例印证了HSD计划的独特价值——<strong>让学生开发者在技术浪潮中抢占先机，在实战中积累足以叩开名企大门的硬核实力</strong>。</p>
+<p>这一计划以“技术赋能未来”为核心理念，通过<strong>三大维度</strong>构建校园技术生态：</p>
+<ol>
+<li><p><strong>前沿技术实践</strong>：提供华为云最高5000元代金券、鸿蒙开发认证1元考试券等资源，支持学生将创意转化为可落地的应用；</p>
+</li>
+<li><p><strong>校企深度联动</strong>：与华为政企团队、生态企业共建“1+1+N”协同培养机制，如天津科技大学HSD工作室与华为滨海基地合作开发的校园智能导航系统，已被华为应用市场正式收录；</p>
+</li>
+<li><p><strong>职业发展通道</strong>：表现优异者可直通华为校招终面，或加入“天才少年计划”，近三年已有超200名HSD成员通过该计划进入华为及生态企业。</p>
+</li>
+</ol>
+<p>这一计划正在重塑高校技术教育的边界。无论是技术型大使主导的OpenHarmony开源项目，还是运营型大使策划的校园技术沙龙，HSD始终以<strong>开放、创新、共生</strong>的姿态，为每一位怀揣技术理想的学生提供从校园极客到行业精英的蜕变舞台。</p>
+<p><strong>加入HSD，你将获得的不仅是华为官方背书的技术认证与实习机会，更将在全球开发者社区中找到志同道合的伙伴，共同定义未来科技的模样。</strong> 这正是华为HSD校园大使计</p>
+<p><img src= "" data-lazy-src="/img/essay/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2025%E5%8D%8E%E4%B8%BA%E8%80%80%E6%98%9FHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E6%8B%9B%E8%81%98-%E5%AE%98%E6%96%B9%E6%B5%B7%E6%8A%A5.png" alt="2025华为HSD校园大使面试"></p>
+<hr>
+<h3 id="（一）核心定位与项目背景"><a href="#（一）核心定位与项目背景" class="headerlink" title="（一）核心定位与项目背景"></a>（一）核心定位与项目背景</h3><p>华为HSD（Huawei Student Developers）校园大使计划成立于2019年，目前已覆盖全国300多所高校，与数千名学生开发者共同构建技术生态。该计划聚焦**HarmonyOS、华为云、HMS（华为移动服务）**等核心技术领域，通过校园大使连接高校师生与华为技术资源，助力学生开发者提升实践能力、参与技术创新。</p>
+<h3 id="（二）核心职责与工作内容"><a href="#（二）核心职责与工作内容" class="headerlink" title="（二）核心职责与工作内容"></a>（二）核心职责与工作内容</h3><ol>
+<li><p><strong>技术生态建设</strong>  </p>
+<ul>
+<li><strong>组织技术活动</strong>：在校园内策划并执行技术沙龙、Codelabs挑战赛、开发者大赛等活动，例如天津科技大学HSD工作室曾举办HarmonyOS百校联动公开课，吸引200余名学生参与。  </li>
+<li><strong>运营开发者社群</strong>：组建校园极客圈子，定期分享技术动态（如鸿蒙开发、AI应用），解答同学技术疑问，例如兰州大学HSD大使通过线上社群组织鸿蒙开发经验交流。  </li>
+<li><strong>参与开源项目</strong>：引导学生参与华为开源项目（如OpenHarmony），推动校园技术成果转化，例如南昌大学HSD大使团队在“互联网+”大赛中凭借鸿蒙应用项目获得铜奖。</li>
+</ul>
+</li>
+<li><p><strong>品牌推广与需求反馈</strong>  </p>
+<ul>
+<li><strong>传播华为技术价值</strong>：通过线上（微信公众号、B站）和线下（海报、宣讲会）渠道，宣传华为开发者大会（HDC）、华为云资源代金券等福利。</li>
+<li><strong>收集学生需求</strong>：将学生对华为技术的使用反馈（如鸿蒙开发工具优化建议）传递给华为专家团队。</li>
+</ul>
+</li>
+<li><p><strong>赛事与人才对接</strong>  </p>
+<ul>
+<li><strong>组织竞赛报名</strong>：协助华为开发者大赛、软件精英挑战赛等赛事的校园推广，例如商洛学院HSD大使成功组织300余名学生参与华为云AI开发竞赛。  </li>
+<li><strong>搭建校企桥梁</strong>：对接华为校企合作项目（如“沃土云创”计划），帮助学生获取实习机会，例如重庆理工大学HSD大使通过校企合作平台为同学争取到华为云实习名额。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="（三）核心福利与职业价值"><a href="#（三）核心福利与职业价值" class="headerlink" title="（三）核心福利与职业价值"></a>（三）核心福利与职业价值</h3><ol>
+<li><p><strong>技术资源与认证</strong>  </p>
+<ul>
+<li><strong>免费培训与认证</strong>：可参与华为专家讲堂、开发者认证考试（如鸿蒙应用开发认证）等</li>
+<li><strong>云资源支持</strong>：获取华为云代金券（最高价值5000元），用于实践项目开发。</li>
+</ul>
+</li>
+<li><p><strong>职业发展机会</strong>  </p>
+<ul>
+<li><strong>校招绿色通道</strong>：表现优秀者可直接获得华为校园招聘面试资格。</li>
+<li><strong>实习与内推</strong>：参与华为“天才少年计划”、暑期实习等项目。</li>
+</ul>
+</li>
+<li><p><strong>荣誉与物质奖励</strong>  </p>
+<ul>
+<li><strong>证书与奖杯</strong>：完成任期可获得华为官方颁发的校园大使聘书，优秀者可获得“耀星大使”奖杯及定制礼品。  </li>
+<li><strong>活动补贴</strong>：部分活动（如HDC大会）提供差旅补贴，例如2025年优秀大使可获得HDC全通门票及最高2000元差旅支持。</li>
+</ul>
+</li>
+</ol>
+<p><img src= "" data-lazy-src="/img/essay/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2025%E5%8D%8E%E4%B8%BA%E8%80%80%E6%98%9FHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E6%8A%A5%E5%90%8D-%E6%94%B6%E8%8E%B7.png" alt="2025华为HSD校园大使报名-收获"></p>
+<hr>
+<h3 id="（四）实践案例"><a href="#（四）实践案例" class="headerlink" title="（四）实践案例"></a>（四）实践案例</h3><p><strong>典型活动案例</strong>  </p>
+<ol>
+<li><p><strong>技术沙龙</strong>：厦门大学HSD大使联合华为专家举办“鸿蒙开发入门”工作坊，吸引120余名学生参与，现场完成智能家居控制应用的原型开发。 </p>
+</li>
+<li><p><strong>竞赛组织</strong>：浙江工业大学HSD大使团队组织“华为开发者大赛校园选拔赛”，最终推送3支队伍进入全国决赛，其中1支获得银奖。  </p>
+</li>
+<li><p><strong>校企合作</strong>：天津科技大学HSD工作室与华为滨海基地合作，开设鸿蒙开发课程，学生作品“校园智能导航系统”被华为应用市场收录。</p>
+</li>
+</ol>
+<hr>
+<h3 id="（五）常见疑问与避坑指南"><a href="#（五）常见疑问与避坑指南" class="headerlink" title="（五）常见疑问与避坑指南"></a>（五）常见疑问与避坑指南</h3><ol>
+<li><p><strong>非技术专业学生能申请吗？</strong><br>可以。HSD大使分为<strong>技术型</strong>（需掌握华为技术）和<strong>运营型</strong>（擅长活动策划）两类，非技术专业学生可侧重申请运营类岗位，但需在简历中突出组织能力（如曾策划过校园科技节）。<br><strong>HSD欢迎多方面的精英人才。只要你认同华为品牌，无论是组织经验丰富的活动家还是热衷前沿科技的互联网达人，都可以申请加入。</strong></p>
+</li>
+<li><p><strong>时间投入与学业冲突怎么办？</strong><br>建议选择活动淡季（如学期中）申请，高峰期（如开学季、HDC大会前后）每周投入约10小时，平时可通过线上社群维护（每周3-5小时）。华为提供灵活的任务安排，可根据学业调整节奏。</p>
+</li>
+<li><p><strong>如何避免无效项目？</strong><br>警惕“纯发朋友圈”的大使岗位，真正的HSD项目会提供技术培训、资源支持及明确的成长路径。申请前可通过华为开发者联盟官网核实项目真实性。</p>
+</li>
+</ol>
+<hr>
+<h2 id="二、申请渠道与最新动态"><a href="#二、申请渠道与最新动态" class="headerlink" title="二、申请渠道与最新动态"></a>二、申请渠道与最新动态</h2><ol>
+<li><p><strong>官方渠道</strong>  </p>
+<ul>
+<li><strong>华为开发者联盟官网</strong>：访问 <strong><a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9kZXZlbG9wZXIuaHVhd2VpLmNvbS9jb25zdW1lci9jbi9wcm9ncmFtcy9oc2Q">HSD专区</a></strong>，点击“成为校园大使”提交申请。  </li>
+<li><strong>赛氪平台</strong>：搜索“2025华为HSD校园大使招募”，按流程完成简历投递与认证。 **<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly93d3cuc2Fpa3IuY29tL3ZzZS9YWURTMjU">赛氪平台</a></li>
+</ul>
+</li>
+<li><p><strong>校内渠道</strong><br>关注学校就业办、学院公告，或加入华为校企合作社群（如“华为云开发者校园群”）获取招募信息。</p>
+</li>
+</ol>
+<hr>
+<h2 id="三、申请条件与选拔流程"><a href="#三、申请条件与选拔流程" class="headerlink" title="三、申请条件与选拔流程"></a>三、申请条件与选拔流程</h2><ol>
+<li><p><strong>基础要求</strong>  </p>
+<ul>
+<li><strong>身份</strong>：全日制在校大学生（本硕博均可） </li>
+<li><strong>技能</strong>：了解或熟悉至少一项华为技术（如鸿蒙开发、华为云服务），或具备较强的活动策划、新媒体运营能力（如曾运营过校园技术类公众号）。  </li>
+<li><strong>资源</strong>：能对接学校社团、实验室等资源，例如担任计算机协会负责人或拥有500人以上技术社群运营经验者优先。</li>
+</ul>
+</li>
+<li><p><strong>选拔流程</strong>  </p>
+<ul>
+<li><strong>简历筛选</strong>：需提交个人简历（突出技术项目、社团经历），例如2024年招募要求中明确提到需展示对华为技术的理解。  </li>
+<li><strong>面试考核</strong>：部分高校需通过线上面试，内容包括技术问题（如“如何用鸿蒙开发一个校园服务应用”）、活动策划案例分析等。  </li>
+<li><strong>试用期考核</strong>：通过筛选后，通常有1-2个月试用期，需完成基础任务（如组织一场技术沙龙），根据执行效果决定正式录用。</li>
+</ul>
+</li>
+</ol>
+<p><img src= "" data-lazy-src="/img/essay/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2025%E5%8D%8E%E4%B8%BA%E8%80%80%E6%98%9FHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E6%8A%A5%E5%90%8D-%E8%B5%9B%E6%B0%AA%E6%8A%A5%E5%90%8D%E6%B5%81%E7%A8%8B.png" alt="2025华为HSD校园大使报名-QQ交流群"></p>
+<p><img src= "" data-lazy-src="/img/essay/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2025%E5%8D%8E%E4%B8%BA%E8%80%80%E6%98%9FHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E6%8A%A5%E5%90%8D-%E5%AE%98%E6%96%B9%E6%8B%9B%E6%96%B0%E6%B5%81%E7%A8%8B.png" alt="2025华为HSD校园大使报名-QQ交流群"></p>
+<hr>
+<h2 id="四、ByteWyrm的2025华为HSD校园大使面试问题"><a href="#四、ByteWyrm的2025华为HSD校园大使面试问题" class="headerlink" title="四、ByteWyrm的2025华为HSD校园大使面试问题"></a>四、ByteWyrm的2025华为HSD校园大使面试问题</h2><p>怎么说呢，这次的面试是采用了电话面试的形式，本来HR说的是大概15分钟左右，但是我看着时间ByteWyrm的这个面试时间就有勒半个多小时(大概33分钟左右)，开始有点紧张吧，不过还好，30秒左右就调整过来了，总体来说还可以。</p>
+<h3 id="（一）自我介绍"><a href="#（一）自我介绍" class="headerlink" title="（一）自我介绍"></a>（一）自我介绍</h3><p>这个几乎是每场面试中 <strong>必问的问题</strong>，自我介绍是一个很好的机会，让面试官了解你自己的背景和兴趣，以及你对技术的理解，这个环节回答的好不好，<strong>决定了后面的面试是否顺利，以及你是否能够得到面试官的青睐。</strong></p>
+<p>不过ByteWyrm还好，早就做了一手准备，虽然说个人简历也就那样叭，不过还是很有诚意、认真、详细的介绍了自己的经历，包括自己的校园经历、获奖经历、项目经历、自己的技术栈、自己的学习经历等等，这个环节回答的很好，面试官也很满意。【其实我是从HR给我提问的语气推测的，还有后面问了很多的问题，综合推测出来的……】</p>
+<blockquote>
+<p>自我介绍</p>
+<blockquote>
+<p>1.个人的基本信息【姓名、学校、院系、专业、目前的成绩绩点、班级排名】<br>2.个人的获取的证书【着重于技能证书，竞赛证书就在竞赛经历里边说，逻辑清洗一些】<br>3.个人的校园经历【主要是对自己的校园经历进行一个总结，<strong>从重要到次要</strong>】<br>4.个人的获奖经历【主要是奖项，<strong>先对奖项进行分类，然后从重要到次要</strong>】<strong>【奖学金–&gt;国家级奖项–&gt;省部级奖项–&gt;校级奖项】</strong><br>5.个人的项目经历【主要是对自己的项目经历进行一个总结，<strong>从重要到次要</strong>】<br>6.个人的技术栈【主要是对自己的技术栈进行一个总结，<strong>不要说熟悉、精通之类的要具体，会哪些技术，能干什么</strong>，<strong>从重要到次要</strong>】<br>7.个人的学习经历【如果有培训营、交换生、出国等经历的，建议说，这也是一个亮点，<strong>从重要到次要</strong>】<br>8.个人的兴趣爱好【看情况，可说可不说】<br>9.个人的自我评价【用关键词，要精炼，<strong>从重要到次要</strong>】</p>
+</blockquote>
+</blockquote>
+<h3 id="（二）面试官问题一"><a href="#（二）面试官问题一" class="headerlink" title="（二）面试官问题一"></a>（二）面试官问题一</h3><p><strong>问题一：请详细介绍一下你的校园经历</strong></p>
+<p>从这个问题看出来，申请校园大使，面试官还是挺重视校园经历的，因为校园大使是学生与企业、机构、组织之间的桥梁，你的校园经历反应出来你的<strong>个人能力</strong>，还能推测出你的<strong>社交圈子</strong>是怎样的，所以校园经历是非常重要的。</p>
+<p>所以啊，提醒了各位，在准备面试的时候，一定要<strong>把自己的校园经历写清楚</strong>，因为这个问题是非常常见的，所以要<strong>注意细节</strong>，<strong>不要说模糊的话</strong>，<strong>要说具体的话</strong>，这样才能让面试官更好地了解你。</p>
+<blockquote>
+<p>❌错误示例</p>
+<blockquote>
+<p>“我在大学参加过学生会和两个感兴趣的社团，平时帮忙组织活动，比如迎新晚会和讲座，也负责过一些宣传工作，跟同学合作得挺好的。”（问题：表述模糊，未说明具体职位、活动细节及个人贡献，缺乏量化成果，无法体现与校园大使岗位匹配的策划、执行或资源整合能力。）</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>✅正确示例</p>
+<blockquote>
+<p>“我目前担任校计算机协会活动部部长，曾主导策划‘校园技术开放日’活动：前期通过调研 200 + 同学需求，确定‘鸿蒙应用开发入门’主题；协调 5 人团队分工，包括设计海报、对接华为校企合作部申请技术支持、搭建线上报名系统；通过社群运营（覆盖 3 个年级共 800 人微信群）和线下路演宣传，最终吸引 327 名同学参与，其中 15 人后续加入协会鸿蒙开发小组。此外，作为班级学习委员，我曾联合 4 所高校学习部建立‘跨校技术资源共享群’，累计分享 120 + 份华为开发者文档，推动 20 余名同学报名华为云认证考试。这些经历让我熟悉校园传播渠道，也锻炼了从需求收集到活动落地的全流程执行能力，与校园大使需要的资源整合、学生需求洞察职责高度契合。”<br><strong>亮点：明确角色、活动细节、个人贡献、量化成果，体现与校园大使岗位匹配的策划、执行或资源整合能力。</strong></p>
+</blockquote>
+</blockquote>
+<p>另外，也提醒了各位，不论是已经在大学校园的同学，还是刚刚高考完即将踏入大学校园的同学们，要规划好自己的大学校园生活，积极参加一些有意义的、对自己的职业发展有帮助的活动或者组织，这样才能让自己的校园经历更加丰富，也能让面试官更好地了解你的能力。</p>
+<h3 id="（三）面试官问题二"><a href="#（三）面试官问题二" class="headerlink" title="（三）面试官问题二"></a>（三）面试官问题二</h3><p><strong>问题二：请简要介绍你举办过活动有哪些？</strong></p>
+<ul>
+<li><strong>问题评价</strong>：此问题旨在了解应聘者的活动组织经验，判断其是否具备校园大使所需的活动策划与执行能力。通过了解应聘者举办过的活动类型、规模和影响力，能初步评估其在校园中开展活动的能力和经验。</li>
+<li><strong>注意点</strong>：<ul>
+<li>介绍活动时要条理清晰，可按照活动的时间顺序或重要程度进行排列。</li>
+<li>突出活动的关键信息，如活动主题、参与人数、活动目标和成果等。</li>
+<li>避免提及过于简单或缺乏影响力的活动，重点介绍与技术、校园推广相关的活动。<blockquote>
+<p><strong>正确回答示例</strong>：“我曾举办过以下活动：1. 组织了一场‘华为云技术分享会’，邀请了华为云的技术专家为同学们进行技术讲解和演示，吸引了超过 150 名同学参与，活动得到了同学们的一致好评。2. 策划并执行了‘校园开发者大赛’，与学校社团合作，吸引了 30 多个团队参赛，活动不仅提升了同学们的技术实践能力，也增强了校园内的技术氛围。”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（四）面试官问题三"><a href="#（四）面试官问题三" class="headerlink" title="（四）面试官问题三"></a>（四）面试官问题三</h3><p><strong>问题三；请挑选出几个让你觉得有成就感或者挫败感的活动，按照背景、过程、成就。挫败、学习到了什么这四个方面进行详细介绍</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的自我反思和总结能力，以及从活动中学习和成长的能力。通过了解应聘者在活动中的经历和感悟，能判断其是否具备应对挑战和解决问题的能力。</li>
+<li><strong>注意点</strong>：<ul>
+<li>选择具有代表性的活动，避免选择过于普通或无明显成就和挫败的活动。</li>
+<li>在介绍过程中，要客观地描述成就和挫败，不要夸大或缩小。</li>
+<li>重点强调从活动中学习到的经验和教训，以及如何将这些经验应用到未来的工作中。<blockquote>
+<p><strong>正确回答示例</strong>：“让我有成就感的活动是‘华为开发者大会校园预热活动’。背景：为了提高同学们对华为开发者大会的关注度，吸引更多同学参与。过程：我带领团队进行了线上线下的宣传推广，组织了讲座和互动活动。成就：活动吸引了超过 200 名同学报名参加开发者大会，提升了华为品牌在校园内的知名度。挫败：活动过程中，由于宣传渠道有限，部分同学没有及时了解到活动信息。学习到了什么：我认识到宣传渠道的多样性和针对性的重要性，未来会更加注重宣传策略的制定。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>正确回答示例</strong>：让我有挫败感的活动是‘校园技术沙龙’。背景：为了促进同学们之间的技术交流和分享。过程：活动组织过程中，出现了嘉宾迟到、设备故障等问题，导致活动效果不佳。成就：虽然活动出现了问题，但还是有部分同学参与了交流和讨论。挫败：活动的参与人数没有达到预期，活动的质量也受到了影响。学习到了什么：我意识到活动组织过程中细节的重要性，未来会更加注重活动的前期筹备和现场管理。”</p>
+</blockquote>
+<h3 id="（五）面试官问题四"><a href="#（五）面试官问题四" class="headerlink" title="（五）面试官问题四"></a>（五）面试官问题四</h3><p><strong>问题四：请说说你对华为耀星HSD校园大使的了解</strong></p>
+<ul>
+<li><strong>问题评价</strong>：此问题考查应聘者对华为HSD校园大使计划的了解程度，判断其是否对该岗位有足够的兴趣和热情。了解应聘者对岗位的认知，也能评估其是否符合岗位的要求。</li>
+<li><strong>注意点</strong>：<ul>
+<li>详细介绍华为HSD校园大使计划的核心定位、职责、福利等方面的内容。</li>
+<li>结合自己的兴趣和优势，说明为什么想成为华为HSD校园大使。</li>
+<li>避免简单地重复招聘信息，要加入自己的理解和思考。<blockquote>
+<p><strong>正确回答示例</strong>：“华为耀星HSD校园大使计划是华为开发者联盟面向高校开发者构建的技术生态先锋力量。该计划自 2019 年启动以来，已在全国 300 余所高校培育出数千名技术新星，覆盖鸿蒙开发、华为云应用、HMS 生态等前沿领域。作为校园大使，主要职责包括技术生态建设、品牌推广与需求反馈、赛事与人才对接等。通过参与该计划，我可以获得技术资源与认证、职业发展机会、荣誉与物质奖励等福利。我对华为的技术和创新理念非常感兴趣，希望能通过成为华为HSD校园大使，将华为的技术和文化传播到校园中，同时也提升自己的技术能力和组织能力。”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（六）面试官问题五"><a href="#（六）面试官问题五" class="headerlink" title="（六）面试官问题五"></a>（六）面试官问题五</h3><p><strong>问题五：情景题——如果让你宣传华为产品、服务，你会通过哪些渠道宣传？</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的市场推广能力和创新思维，判断其是否能够有效地将华为产品和服务推广到校园中。通过了解应聘者的宣传渠道和策略，能评估其对校园市场的了解程度。</li>
+<li><strong>注意点</strong>：<ul>
+<li>结合校园环境和学生特点，选择合适的宣传渠道，如线上渠道（微信公众号、校园论坛、社交媒体等）和线下渠道（海报、讲座、活动等）。</li>
+<li>制定具体的宣传策略，如宣传内容、宣传时间、宣传频率等。</li>
+<li>考虑宣传渠道的成本和效果，选择性价比高的宣传方式。<blockquote>
+<p><strong>正确回答示例</strong>：“如果让我宣传华为产品、服务，我会采用以下渠道进行宣传：1. 线上渠道：通过学校的微信公众号、校园论坛、社交媒体等平台发布宣传文章和海报，介绍华为产品和服务的特点和优势。同时，利用社交媒体的互动功能，开展线上活动，如抽奖、问答等，吸引同学们的关注和参与。2. 线下渠道：在学校的宣传栏、教学楼、食堂等地方张贴宣传海报，吸引同学们的注意。组织华为产品体验活动和技术讲座，邀请同学们亲身体验华为产品的功能和性能，同时了解华为的技术和创新理念。3. 社团合作：与学校的计算机协会、科技社团等合作，开展联合活动，如技术交流、项目合作等，通过社团的影响力和号召力，将华为产品和服务推广到更多的同学中。”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（七）面试官问题六"><a href="#（七）面试官问题六" class="headerlink" title="（七）面试官问题六"></a>（七）面试官问题六</h3><p><strong>问题六：请评价一下你的社交圈状态</strong></p>
+<ul>
+<li><strong>问题评价</strong>：此问题考查应聘者的社交能力和人际关系，判断其是否能够在校园中建立良好的人际关系，为华为HSD校园大使的工作提供支持。了解应聘者的社交圈状态，也能评估其是否具备团队合作和沟通能力。</li>
+<li><strong>注意点</strong>：<ul>
+<li>客观地评价自己的社交圈状态，包括社交圈的规模、类型、活跃度等。</li>
+<li>强调自己在社交圈中的角色和作用，如组织者、参与者、协调者等。</li>
+<li>说明自己的社交圈对华为HSD校园大使工作的帮助和支持。<blockquote>
+<p><strong>正确回答示例</strong>：“我的社交圈状态比较良好。我在学校里认识了很多同学和老师，社交圈涵盖了不同专业、不同年级的学生。我经常参加各种社团活动和校园活动，与同学们保持着良好的沟通和交流。在社交圈中，我通常扮演组织者和协调者的角色，能够有效地组织和协调活动的开展。我的社交圈对华为HSD校园大使工作有很大的帮助和支持。通过我的社交圈，我可以快速地传播华为的技术和文化，吸引更多的同学参与到华为的活动中来。同时，我也可以通过社交圈了解同学们的需求和反馈，为华为的产品和服务提供改进建议。”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（八）面试官问题七"><a href="#（八）面试官问题七" class="headerlink" title="（八）面试官问题七"></a>（八）面试官问题七</h3><p><strong>问题七：请评价一下你的个人运营能力</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的运营能力和管理能力，判断其是否能够有效地组织和管理校园活动，推广华为的技术和文化。了解应聘者的个人运营能力，也能评估其是否具备成为华为HSD校园大使的潜力。</li>
+<li><strong>注意点</strong>：<ul>
+<li>从活动策划、组织执行、资源管理、数据分析等方面评价自己的个人运营能力。</li>
+<li>结合具体的案例，说明自己在运营过程中的成功经验和不足之处。</li>
+<li>强调自己的学习能力和改进意识，说明如何不断提升自己的运营能力。<blockquote>
+<p><strong>正确回答示例</strong>：“我认为我的个人运营能力较强。在活动策划方面，我能够根据目标受众和活动目的，制定详细的活动方案和预算。在组织执行方面，我能够有效地协调各方资源，确保活动的顺利开展。在资源管理方面，我能够合理分配资源，提高资源的利用效率。在数据分析方面，我能够通过数据分析，评估活动的效果和影响力，为后续的活动提供改进建议。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例如，在组织‘华为开发者大赛校园选拔赛’时，我负责活动的策划和组织执行。我制定了详细的活动方案和预算，协调了学校社团、华为专家和参赛团队等各方资源，确保了活动的顺利开展。通过数据分析，我发现活动的宣传效果不佳，于是我及时调整了宣传策略，增加了宣传渠道和宣传频率，最终活动的参与人数和质量都得到了显著提高。</p>
+</blockquote>
+<blockquote>
+<p>当然，我也意识到自己在运营过程中还存在一些不足之处，如对市场变化的敏感度不够、对新技术的了解不够深入等。我会不断学习和提升自己的运营能力，关注市场变化和新技术的发展，为华为HSD校园大使的工作提供更好的支持。”</p>
+</blockquote>
+<h3 id="（九）面试官问题八"><a href="#（九）面试官问题八" class="headerlink" title="（九）面试官问题八"></a>（九）面试官问题八</h3><p><strong>问题八：请介绍一下你对HarmonyOS生态的了解</strong></p>
+<ul>
+<li><strong>问题评价</strong>：此问题考查应聘者对华为核心技术之一HarmonyOS的了解程度，判断其是否具备相关的技术知识和学习能力。了解应聘者对HarmonyOS生态的认知，也能评估其是否符合华为HSD校园大使的岗位要求。</li>
+<li><strong>注意点</strong>：<ul>
+<li>介绍HarmonyOS的概念、特点和优势，如分布式架构、一次开发多端部署等。</li>
+<li>说明HarmonyOS生态的组成部分，如开发者、应用开发者、设备厂商等。</li>
+<li>结合实际案例，说明HarmonyOS生态的应用场景和发展前景。<blockquote>
+<p><strong>正确回答示例</strong>：“HarmonyOS是华为自主研发的面向全场景的分布式操作系统，具有分布式架构、一次开发多端部署、万物互联等特点和优势。HarmonyOS生态主要由开发者、应用开发者、设备厂商等组成。开发者可以使用华为提供的开发工具和平台，开发基于HarmonyOS的应用和服务；应用开发者可以将自己的应用适配到HarmonyOS系统上，为用户提供更好的使用体验；设备厂商可以将HarmonyOS系统集成到自己的设备中，实现设备之间的互联互通和协同工作。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例如，在智能家居领域，用户可以通过HarmonyOS系统，将家中的智能设备连接在一起，实现远程控制和自动化控制；在智能穿戴领域，用户可以通过HarmonyOS系统，将智能手表、智能手环等设备与手机连接在一起，实现数据共享和同步。随着5G技术的发展和万物互联时代的到来，HarmonyOS生态的应用场景和发展前景非常广阔。”</p>
+</blockquote>
+<h3 id="（十）面试官问题九"><a href="#（十）面试官问题九" class="headerlink" title="（十）面试官问题九"></a>（十）面试官问题九</h3><p><strong>问题九：你是否了解HarmonyOS相关开发，如果有的话请详细说明</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的技术能力和实践经验，判断其是否具备HarmonyOS开发的能力和潜力。了解应聘者的HarmonyOS开发经验，也能评估其是否能够在校园中开展相关的技术活动和推广工作。</li>
+<li><strong>注意点</strong>：<ul>
+<li>如果有HarmonyOS开发经验，要详细介绍自己的开发项目和成果，包括项目的背景、目标、技术架构、开发过程和遇到的问题及解决方案等。</li>
+<li>如果没有HarmonyOS开发经验，要说明自己对HarmonyOS开发的兴趣和学习计划，表达自己愿意学习和掌握相关技术的决心。<blockquote>
+<p><strong>正确回答示例</strong>：“我有一定的HarmonyOS开发经验。我曾经参与过一个基于HarmonyOS的智能家居应用开发项目。项目的背景是为了实现智能家居设备的远程控制和自动化控制。项目的目标是开发一款具有友好界面和丰富功能的智能家居应用。技术架构方面，我们采用了HarmonyOS的分布式架构和ArkTS开发语言。开发过程中，我们遇到了一些问题，如设备兼容性问题、数据传输问题等，通过查阅文档和请教专家，我们最终解决了这些问题。项目的成果是开发出了一款功能完善、性能稳定的智能家居应用，得到了用户的好评。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果我有幸成为华为HSD校园大使，我将继续深入学习HarmonyOS开发技术，开展相关的技术活动和推广工作，为华为HarmonyOS生态的发展做出贡献。”</p>
+</blockquote>
+<h3 id="（十一）面试官问题十"><a href="#（十一）面试官问题十" class="headerlink" title="（十一）面试官问题十"></a>（十一）面试官问题十</h3><p><strong>问题十：在你看来HarmonyOS的优势体现在哪些方面</strong></p>
+<ul>
+<li><strong>问题评价</strong>：此问题考查应聘者对HarmonyOS的理解和分析能力，判断其是否能够准确把握HarmonyOS的优势和价值。了解应聘者对HarmonyOS优势的认识，也能评估其是否能够有效地向同学们宣传和推广HarmonyOS。</li>
+<li><strong>注意点</strong>：<ul>
+<li>从技术、用户体验、生态发展等方面分析HarmonyOS的优势。</li>
+<li>结合实际案例，说明HarmonyOS优势的具体体现。</li>
+<li>避免简单地罗列HarmonyOS的优势，要进行深入的分析和阐述。<blockquote>
+<p><strong>正确回答示例</strong>：“在我看来，HarmonyOS的优势主要体现在以下几个方面：1. 技术优势：HarmonyOS采用了分布式架构，能够实现设备之间的互联互通和协同工作。一次开发多端部署的特性，能够大大提高开发效率，降低开发成本。2. 用户体验优势：HarmonyOS提供了统一的用户界面和操作方式，用户可以在不同的设备上享受到一致的使用体验。同时，HarmonyOS还支持万物互联，用户可以通过一个设备控制多个设备，实现智能化生活。3. 生态发展优势：华为为HarmonyOS生态提供了丰富的开发资源和支持，吸引了大量的开发者和应用开发者加入。随着HarmonyOS生态的不断发展和完善，将会有更多的应用和服务涌现，为用户提供更加丰富的选择。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例如，在智能家居领域，HarmonyOS的分布式架构和万物互联特性，能够实现不同品牌、不同类型的智能家居设备之间的互联互通和协同工作，用户可以通过一个手机控制家中的所有智能设备，实现智能化生活。在智能穿戴领域，HarmonyOS的一次开发多端部署特性，能够让开发者快速地将应用适配到不同的智能穿戴设备上，为用户提供更加丰富的应用和服务。”</p>
+</blockquote>
+<h3 id="（十二）面试官问题十一"><a href="#（十二）面试官问题十一" class="headerlink" title="（十二）面试官问题十一"></a>（十二）面试官问题十一</h3><p><strong>问题十一：情景题——在你们学校的背景下，如果让你开发一款软件，你会考虑哪些功能</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的创新思维和需求分析能力，判断其是否能够结合学校的实际情况，开发出具有实用性和创新性的软件。了解应聘者的软件功能设计思路，也能评估其是否具备成为华为HSD校园大使的创新能力。</li>
+<li><strong>注意点</strong>：<ul>
+<li>了解学校的特点和需求，如学生的学习、生活、娱乐等方面的需求。</li>
+<li>结合华为的技术和产品，如HarmonyOS、华为云等，设计具有特色的软件功能。</li>
+<li>强调软件的实用性和创新性，说明软件能够为学校师生带来的价值和便利。<blockquote>
+<p><strong>正确回答示例</strong>：“在我们学校的背景下，如果让我开发一款软件，我会考虑以下功能：1. 学习辅助功能：提供课程表、考试安排、作业提醒等功能，帮助学生更好地管理学习时间和任务。同时，提供在线学习资源，如课件、视频、习题等，方便学生随时随地进行学习。2. 校园社交功能：提供校内社交平台，让学生可以结交志同道合的朋友，分享学习和生活经验。同时，提供校园活动发布和报名功能，方便学生参与校园活动。3. 生活服务功能：提供校园地图、食堂菜单、图书馆借阅等功能，帮助学生更好地了解校园环境和服务。同时，提供快递查询、水电费缴纳等功能，方便学生的日常生活。4. 技术创新功能：结合华为的技术和产品，如HarmonyOS、华为云等，开发具有特色的功能，如智能语音助手、分布式应用等，提升软件的用户体验和竞争力。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例如，我们可以开发一款基于HarmonyOS的校园学习助手软件，该软件可以实现课程表、考试安排、作业提醒等功能的多端同步，让学生可以在手机、平板、电脑等设备上随时随地查看和管理自己的学习信息。同时，软件还可以提供智能语音助手功能，学生可以通过语音查询课程信息、作业信息等，提高学习效率。”</p>
+</blockquote>
+<h3 id="（十三）面试官问题十二"><a href="#（十三）面试官问题十二" class="headerlink" title="（十三）面试官问题十二"></a>（十三）面试官问题十二</h3><p><strong>问题十二：情景题——在开发过程中，如果遇到了小组成员有分歧，你会怎么解决</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者的团队协作能力和问题解决能力，判断其是否能够在团队中有效地沟通和协调，解决团队成员之间的分歧。了解应聘者的问题解决思路，也能评估其是否具备成为华为HSD校园大使的领导能力和团队管理能力。</li>
+<li><strong>注意点</strong>：<ul>
+<li>强调沟通和理解的重要性，说明会与小组成员进行充分的沟通，了解他们的观点和想法。</li>
+<li>提出具体的解决分歧的方法，如投票、协商、寻求第三方意见等。</li>
+<li>说明会以团队的目标和利益为重，确保分歧的解决不会影响项目的进度和质量。<blockquote>
+<p><strong>正确回答示例</strong>：“在开发过程中，如果遇到了小组成员有分歧，我会采取以下步骤解决：1. 沟通和倾听：我会与小组成员进行充分的沟通，了解他们的观点和想法，听取他们的意见和建议。同时，我也会表达自己的观点和想法，让小组成员了解我的立场。2. 分析和评估：在了解了小组成员的观点和想法后，我会对分歧进行分析和评估，找出分歧的根源和关键问题。同时，我也会考虑分歧对项目的影响和后果。3. 寻求解决方案：根据分析和评估的结果，我会与小组成员一起寻求解决方案。我们可以通过投票、协商、寻求第三方意见等方式，找到一个大家都能接受的解决方案。4. 执行和监督：在找到解决方案后，我会组织小组成员执行解决方案，并对执行情况进行监督和评估。如果发现问题，我会及时调整解决方案，确保项目的顺利进行。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例如，如果在软件功能设计方面遇到了分歧，我会与小组成员进行充分的沟通，了解他们的设计思路和需求。然后，我们会对不同的设计方案进行分析和评估，找出各自的优缺点。最后，我们会通过投票或协商的方式，选择一个大家都能接受的设计方案。在执行过程中，我会监督小组成员按照设计方案进行开发，并及时解决遇到的问题。”</p>
+</blockquote>
+<h3 id="（十四）面试官问题十三"><a href="#（十四）面试官问题十三" class="headerlink" title="（十四）面试官问题十三"></a>（十四）面试官问题十三</h3><p><strong>问题十三：请思考：技术达人、社交达人、运营达人，请根据你心中的权重对这三个标签进行排序，你觉得你最适合哪一个标签</strong></p>
+<ul>
+<li><strong>问题评价</strong>：该问题考查应聘者对自己的认知和定位，判断其是否能够清晰地了解自己的优势和特长，以及是否能够根据岗位的要求进行自我调整和提升。了解应聘者的自我认知和定位，也能评估其是否适合华为HSD校园大使的岗位。</li>
+<li><strong>注意点</strong>：<ul>
+<li>根据自己的实际情况和岗位要求，对三个标签进行合理的排序。</li>
+<li>说明自己选择最适合标签的原因，结合自己的经历和能力进行阐述。</li>
+<li>强调自己的学习能力和发展潜力，说明自己会不断提升自己的其他方面的能力。<blockquote>
+<p><strong>正确回答示例</strong>：“在我心中，我对这三个标签的排序是：技术达人、运营达人、社交达人。我认为我最适合的标签是技术达人。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>我选择技术达人作为最适合的标签，主要是因为我对技术有浓厚的兴趣和较强的学习能力。我曾经参与过多个技术项目的开发，掌握了多种编程语言和开发工具。同时，我也对华为的技术和产品有一定的了解，如HarmonyOS、华为云等。我相信，作为技术达人，我可以在校园中开展相关的技术活动和推广工作，为同学们提供技术支持和帮助。</p>
+</blockquote>
+<blockquote>
+<p>当然，我也意识到运营和社交能力对于华为HSD校园大使的工作也非常重要。我会不断学习和提升自己的运营和社交能力，积极参与校园活动和社交活动，与同学们建立良好的人际关系。同时，我也会学习运营知识和技巧，提高自己的活动策划和组织能力。我相信，通过不断的学习和实践，我可以成为一名全面发展的华为HSD校园大使。”</p>
+</blockquote>
+<hr>
+<p>至此面试的所有问题都在这里了，因为当时忘开了电话录音，又隔了两天，所以可能就可能缺了两个问题，根据自己的记忆记下来这些问题。</p>
+<hr>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>本次ByteWyrm的华为HSD校园大使面试涵盖了多个方面的问题，全面考查了综合素质和能力。从自我介绍到校园经历、活动组织、对岗位的了解、技术知识、市场推广、团队协作等方面都有涉及。</p>
+<hr>
+<h2 id="六、ByteWyrm的建议"><a href="#六、ByteWyrm的建议" class="headerlink" title="六、ByteWyrm的建议"></a>六、ByteWyrm的建议</h2><p>在面试过程中，需要注意以下几点：</p>
+<ol>
+<li><strong>充分准备</strong>：提前了解华为HSD校园大使计划的相关信息，包括核心定位、职责、福利等。同时，准备好自己的简历和自我介绍，突出自己的优势和特长。</li>
+<li><strong>清晰表达</strong>：回答问题时要条理清晰，语言简洁明了。突出关键信息，避免冗长和模糊的表述。</li>
+<li><strong>结合实际</strong>：在回答问题时，要结合自己的实际经历和案例，说明自己的能力和经验。同时，要考虑问题的实际背景和场景，提出切实可行的解决方案。</li>
+<li><strong>展现潜力</strong>：强调自己的学习能力和发展潜力，说明自己愿意不断学习和提升自己的能力，适应岗位的要求。</li>
+<li><strong>团队协作</strong>：在回答涉及团队协作的问题时，要强调沟通、理解和合作的重要性，说明自己能够在团队中发挥积极的作用。</li>
+</ol>
+<hr>
+<p>总体来说，本次面试是一次全面考查应聘者综合素质和能力的机会。需要在面试中充分展示自己的优势和特长，同时也要展现出自己的学习能力和发展潜力。通过这次面试，我也可以更好地了解自己的不足之处，为未来的发展做好准备。</p>
+<hr>
+<p><strong>华为耀星HSD校园大使</strong></p>
+<p><strong>简历上传绿色通道</strong>：<strong><a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9kZXZlbG9wZXIuaHVhd2VpLmNvbS9jb25zdW1lci9jbi9wcm9ncmFtcy9oc2QvYW1iYXNzYWRvcj9oYV9zb3VyY2U9U2FpS2UmaGFfc291cmNlSWQ9ODkwMDA0Mzg">华为耀星HSD校园大使-官方简历投递</a></strong></p>
+<p><em><strong>小助手QQ：3664843740</strong></em><br><em><strong>小助手微信：13110023072</strong></em><br><em><strong>2025华为校园大使QQ交流群：202256707</strong></em></p>
+<p><img src= "" data-lazy-src="/img/essay/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86/2025%E5%8D%8E%E4%B8%BA%E8%80%80%E6%98%9FHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E6%8B%9B%E8%81%98-QQ%E4%BA%A4%E6%B5%81%E7%BE%A4.jpg" alt="2025华为HSD校园大使报名-QQ交流群"></p>
+<p>欢迎大家</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><div class="post-copyright__author_img"><img class="post-copyright__author_img_front" src="/img/Logo-48x48.ico"></div><div class="post-copyright__author_name">ByteWyrm</div><div class="post-copyright__author_desc">第一次参加华为HSD校园大使面试，记录一下面试的内容，还有一些面试的经验。</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward"><div class="reward-button" title="赞赏作者" onclick="AddRewardMask()"><i class="solitude fas fa-heart"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">Thanks for your appreciation. / 感谢您的赞赏</span><ul class="reward-group"><li class="reward-item"><a href="/"><img class="post-qr-code-img nolazyload" src="/img/sponsor/weixin.png" alt="微信" style="border-color: var(--efu-black)"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/"><img class="post-qr-code-img nolazyload" src="/img/sponsor/alipay.jpg" alt="支付宝" style="border-color: var(--efu-black)"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/"><div class="reward-text">赞赏名单</div><div class="reward-dec">Because of your support, I realize the value of writing articles. / 由于您的支持，我才能够实现写作的价值。</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script></div></div><div class="social-share"><a class="social-share-ico icon-qq" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9jb25uZWN0LnFxLmNvbS93aWRnZXQvc2hhcmVxcS9pbmRleC5odG1sP3VybD1odHRwcyUzQSUyRiUyRmJsb2cuZGV2bmVzdC50b3AlMkZwb3N0JTJGM2RlNjA4NGIlMkYmdGl0bGU9MjAyNSVFNSU4RCU4RSVFNCVCOCVCQUhTRCVFNiVBMCVBMSVFNSU5QiVBRCVFNSVBNCVBNyVFNCVCRCVCRiVFOSU5RCVBMiVFOCVBRiU5NSZkZXNjPXVuZGVmaW5lZCZzdW1tYXJ5PXVuZGVmaW5lZCZzaXRlPTIwMjUlRTUlOEQlOEUlRTQlQjglQkFIU0QlRTYlQTAlQTElRTUlOUIlQUQlRTUlQTQlQTclRTQlQkQlQkYlRTklOUQlQTIlRTglQUYlOTUmcGljcz0lMkZpbWclMkZiYWNrZ3JvdW5kJTJGZXNzYXklMkYyMDI1JUU1JThEJThFJUU0JUI4JUJBSFNEJUU2JUEwJUExJUU1JTlCJUFEJUU1JUE0JUE3JUU0JUJEJUJGJUU5JTlEJUEyJUU4JUFGJTk1LmpwZw" title="分享到QQ"><i class="solitude fab fa-qq"></i></a><a class="social-share-ico icon-weibo" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cDovL3NlcnZpY2Uud2VpYm8uY29tL3NoYXJlL3NoYXJlLnBocD91cmw9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjNkZTYwODRiJTJGJnRpdGxlPTIwMjUlRTUlOEQlOEUlRTQlQjglQkFIU0QlRTYlQTAlQTElRTUlOUIlQUQlRTUlQTQlQTclRTQlQkQlQkYlRTklOUQlQTIlRTglQUYlOTUmcGljPSUyRmltZyUyRmJhY2tncm91bmQlMkZlc3NheSUyRjIwMjUlRTUlOEQlOEUlRTQlQjglQkFIU0QlRTYlQTAlQTElRTUlOUIlQUQlRTUlQTQlQTclRTQlQkQlQkYlRTklOUQlQTIlRTglQUYlOTUuanBn" title="分享到微博"><i class="solitude fab fa-weibo"></i></a><a class="social-share-ico icon-twitter" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly90d2l0dGVyLmNvbS9pbnRlbnQvdHdlZXQ_dXJsPWh0dHBzJTNBJTJGJTJGYmxvZy5kZXZuZXN0LnRvcCUyRnBvc3QlMkYzZGU2MDg0YiUyRiZ0ZXh0PTIwMjUlRTUlOEQlOEUlRTQlQjglQkFIU0QlRTYlQTAlQTElRTUlOUIlQUQlRTUlQTQlQTclRTQlQkQlQkYlRTklOUQlQTIlRTglQUYlOTU" title="分享到Twitter"><i class="solitude fab fa-twitter"></i></a><a class="social-share-ico icon-facebook" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlci9zaGFyZXIucGhwP3U9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjNkZTYwODRiJTJG" title="分享到Facebook"><i class="solitude fab fa-facebook"></i></a><a class="social-share-ico icon-telegram" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly90Lm1lL3NoYXJlL3VybD91cmw9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjNkZTYwODRiJTJGJnRleHQ9MjAyNSVFNSU4RCU4RSVFNCVCOCVCQUhTRCVFNiVBMCVBMSVFNSU5QiVBRCVFNSVBNCVBNyVFNCVCRCVCRiVFOSU5RCVBMiVFOCVBRiU5NQ" title="分享到Telegram"><i class="solitude fab fa-telegram"></i></a><a class="social-share-ico icon-whatsapp" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ_dGV4dD0yMDI1JUU1JThEJThFJUU0JUI4JUJBSFNEJUU2JUEwJUExJUU1JTlCJUFEJUU1JUE0JUE3JUU0JUJEJUJGJUU5JTlEJUEyJUU4JUFGJTk1IGh0dHBzJTNBJTJGJTJGYmxvZy5kZXZuZXN0LnRvcCUyRnBvc3QlMkYzZGU2MDg0YiUyRg" title="分享到WhatsApp"><i class="solitude fab fa-whatsapp"></i></a><a class="social-share-ico icon-linkedin" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL3NoYXJlQXJ0aWNsZT9taW5pPXRydWUmdXJsPWh0dHBzJTNBJTJGJTJGYmxvZy5kZXZuZXN0LnRvcCUyRnBvc3QlMkYzZGU2MDg0YiUyRiZ0aXRsZT0yMDI1JUU1JThEJThFJUU0JUI4JUJBSFNEJUU2JUEwJUExJUU1JTlCJUFEJUU1JUE0JUE3JUU0JUJEJUJGJUU5JTlEJUEyJUU4JUFGJTk1JnN1bW1hcnk9dW5kZWZpbmVkJnNvdXJjZT0yMDI1JUU1JThEJThFJUU0JUI4JUJBSFNEJUU2JUEwJUExJUU1JTlCJUFEJUU1JUE0JUE3JUU0JUJEJUJGJUU5JTlEJUEyJUU4JUFGJTk1" title="分享到LinkedIn"><i class="solitude fab fa-linkedin"></i></a><div class="social-share-ico icon-link" onclick="utils.copy(&quot;https://blog.devnest.top/post/3de6084b/&quot;)" title="复制文章链接"><i class="solitude fas fa-link"></i></div><div class="social-share-ico icon-qrcode" title="使用手机扫码阅读这篇文章"><i class="solitude fas fa-qrcode"></i><div class="share-main"><div class="share-main-all"><div id="qrcode"></div><div class="reward-dec">使用手机扫码阅读这篇文章</div></div></div><script pjax="">typeof QRCode === 'function' && new QRCode(document.getElementById("qrcode"), {
+    text: 'https://blog.devnest.top/post/3de6084b/',
+    correctLevel : QRCode.CorrectLevel.L
+});
+window.addEventListener('DOMContentLoaded', () => {
+    new QRCode(document.getElementById("qrcode"), {
+        text: 'https://blog.devnest.top/post/3de6084b/',
+        correctLevel : QRCode.CorrectLevel.L
+    });
+});
+</script></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpoLWhhbnM">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">ByteWyrm's Blog</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>校园大使<span class="tagsPageCount">2</span></span></a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>面试<span class="tagsPageCount">1</span></span></a><a class="post-meta__tags" href="/tags/%E5%8D%8E%E4%B8%BA/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>华为<span class="tagsPageCount">1</span></span></a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>面试经验<span class="tagsPageCount">1</span></span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/5eb0d11d/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">校园大使介绍</div></div></a></div><div class="next-post pull-right"><a href="/post/38cf3f8b/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">猫脸变换</div></div></a></div></nav>
+        <div class="relatedPosts">
+            <div class="headline">
+                <i class="solitude fas fa-star"></i>
+                <span>喜欢这篇的人也看了</span>
+                <div class="relatedPosts-link">
+                    <a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a>
+                </div>
+            </div>
+            <div class="relatedPosts-list">
+            <div>
+                <a href="/post/5eb0d11d/" title="校园大使介绍">
+                    <img class="cover" src= "" data-lazy-src="/img/background/essay/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E4%BB%8B%E7%BB%8D.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">校园大使介绍</div>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude fas fa-comment"></i><span> 评论</span><span class="count"><span class="giscus-count"></span></span><a class="plxycss" href="/comment/"><i class="solitude fas fa-file-lines"></i><span>&nbsp;评论协议</span></a></div></div><div class="comment-wrap"><div id="giscus-wrap"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" onclick="sco.changeWittyWord()"></div></div></div><div class="avatar"><img alt="头像" src="/img/static/avatar.jpg"></div><div class="description">ByteWyrm的博客,在代码与技术的世界探索,记住来时路，方知去何处！</div><div class="bottom-group"><span class="left"><div class="name">ByteWyrm</div><div class="desc">只有迎风，风筝才能飞得更高。</div></span><div class="social-icons is-center"><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior" title="Github"><i class="solitude  fab fa-github"></i></a><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/3537114050332802" title="Bilibili"><i class="solitude  fab fa-bilibili"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude fas fa-bars"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E4%BB%8B%E7%BB%8D"><span class="toc-text">一、华为HSD校园大使介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%BD%8D%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">（一）核心定位与项目背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%A0%B8%E5%BF%83%E8%81%8C%E8%B4%A3%E4%B8%8E%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9"><span class="toc-text">（二）核心职责与工作内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B8%E5%BF%83%E7%A6%8F%E5%88%A9%E4%B8%8E%E8%81%8C%E4%B8%9A%E4%BB%B7%E5%80%BC"><span class="toc-text">（三）核心福利与职业价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="toc-text">（四）实践案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E5%B8%B8%E8%A7%81%E7%96%91%E9%97%AE%E4%B8%8E%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-text">（五）常见疑问与避坑指南</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%B3%E8%AF%B7%E6%B8%A0%E9%81%93%E4%B8%8E%E6%9C%80%E6%96%B0%E5%8A%A8%E6%80%81"><span class="toc-text">二、申请渠道与最新动态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%94%B3%E8%AF%B7%E6%9D%A1%E4%BB%B6%E4%B8%8E%E9%80%89%E6%8B%94%E6%B5%81%E7%A8%8B"><span class="toc-text">三、申请条件与选拔流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81ByteWyrm%E7%9A%842025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98"><span class="toc-text">四、ByteWyrm的2025华为HSD校园大使面试问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="toc-text">（一）自我介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-text">（二）面试官问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-text">（三）面试官问题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%B8%89"><span class="toc-text">（四）面试官问题三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%9B%9B"><span class="toc-text">（五）面试官问题四</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%BA%94"><span class="toc-text">（六）面试官问题五</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B8%83%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%85%AD"><span class="toc-text">（七）面试官问题六</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%85%AB%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%B8%83"><span class="toc-text">（八）面试官问题七</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E4%B9%9D%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%85%AB"><span class="toc-text">（九）面试官问题八</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%8D%81%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E4%B9%9D"><span class="toc-text">（十）面试官问题九</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%8D%81"><span class="toc-text">（十一）面试官问题十</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%8D%81%E4%B8%80"><span class="toc-text">（十二）面试官问题十一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%8D%81%E4%BA%8C"><span class="toc-text">（十三）面试官问题十二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E9%9D%A2%E8%AF%95%E5%AE%98%E9%97%AE%E9%A2%98%E5%8D%81%E4%B8%89"><span class="toc-text">（十四）面试官问题十三</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">五、总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81ByteWyrm%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-text">六、ByteWyrm的建议</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fas fa-map"></i><span>最近发布</span></div><div class="aside-list"><a class="aside-list-item" href="/post/5eb0d11d/" title="校园大使介绍"><div class="thumbnail"><img alt="校园大使介绍" src="/img/background/essay/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E4%BB%8B%E7%BB%8D.jpg"></div><div class="content"><span class="title" href="/post/5eb0d11d/" title="校园大使介绍">校园大使介绍</span><span class="categories" href="/post/5eb0d11d/">校园大使</span></div></a><a class="aside-list-item" href="/post/3de6084b/" title="2025华为HSD校园大使面试"><div class="thumbnail"><img alt="2025华为HSD校园大使面试" src="/img/background/essay/2025%E5%8D%8E%E4%B8%BAHSD%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF%E9%9D%A2%E8%AF%95.jpg"></div><div class="content"><span class="title" href="/post/3de6084b/" title="2025华为HSD校园大使面试">2025华为HSD校园大使面试</span><span class="categories" href="/post/3de6084b/">面试</span></div></a><a class="aside-list-item" href="/post/38cf3f8b/" title="猫脸变换"><div class="thumbnail"><img alt="猫脸变换" src="/img/background/essay/%E7%8C%AB%E8%84%B8%E5%8F%98%E6%8D%A2.jpg"></div><div class="content"><span class="title" href="/post/38cf3f8b/" title="猫脸变换">猫脸变换</span><span class="categories" href="/post/38cf3f8b/">CV</span></div></a><a class="aside-list-item" href="/post/9d0d3265/" title="2025ISCC区域赛REVERSE"><div class="thumbnail"><img alt="2025ISCC区域赛REVERSE" src="/img/background/essay/2025ISCC%E5%8C%BA%E5%9F%9F%E8%B5%9BREVERSE.jpg"></div><div class="content"><span class="title" href="/post/9d0d3265/" title="2025ISCC区域赛REVERSE">2025ISCC区域赛REVERSE</span><span class="categories" href="/post/9d0d3265/">CTF</span></div></a><a class="aside-list-item" href="/post/9eeba12b/" title="2025ISCC区域赛MOBILE"><div class="thumbnail"><img alt="2025ISCC区域赛MOBILE" src="/img/background/essay/2025ISCC%E5%8C%BA%E5%9F%9F%E8%B5%9BMOBILE.jpg"></div><div class="content"><span class="title" href="/post/9eeba12b/" title="2025ISCC区域赛MOBILE">2025ISCC区域赛MOBILE</span><span class="categories" href="/post/9eeba12b/">CTF</span></div></a></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>ByteWyrm</span></div><div class="footer-bar-description">Articles from ByteWyrm. / 文章来自 ByteWyrm</div><a class="footer-bar-link" href="/about/">Learn more / 了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior" title="Github"><i class="solitude  fab fa-github"></i></a><a class="deal_link" href="/bytewyrm@163.com" title="Mail"><i class="solitude  far fa-envelope"></i></a><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src= "" data-lazy-src="/img/static/avatar.jpg" alt="返回顶部"></div><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/3537114050332802" title="Bilibili"><i class="solitude  fab fa-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://orcid.org/0009-0004-7928-8453" title="ORCID"><i class="solitude  fab fa-scroll"></i></a></div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="首页">首页</a><a class="footer-item" href="/circlefriends/" title="朋友圈">朋友圈</a><a class="footer-item" href="/message/" title="想对我说">想对我说</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态">友链状态</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="申请友链">申请友链</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.huaweicloud.com/" title="华为云">华为云</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://tongji.baidu.com/" title="百度统计">百度统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://v6.51.la/" title="51la统计">51la统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://umami.blog.devnest.top/" title="站点统计">站点统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://status.devnest.top/" title="站点检测">站点检测</a></div></div><div class="footer-group"><h3 class="footer-title">组织</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.foreverblog.cn/" title="十年之约">十年之约</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.blogplanet.cn/" title="博客星球">博客星球</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://bokequan.cn/" title="博客圈">博客圈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://boke.lu/" title="博客录">博客录</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.boyouquan.com/" title="博友圈">博友圈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.zhblogs.net/" title="集博栈">集博栈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://icp.gov.moe/" title="萌国备案">萌国备案</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.blogsclub.org/" title="BlogsClub">BlogsClub</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://bf.zzxworld.com/" title="BlogFinder">BlogFinder</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" href="/about/#sponsor" title="赞助">赞助</a><a class="footer-item" href="/about/#award" title="打赏">打赏</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/" title="框架">框架</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://solitude.js.org/" title="主题">主题</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/privacy/" title="隐私政策">隐私政策</a><a class="footer-item" href="/disclaimer/" title="免责声明">免责声明</a><a class="footer-item" href="/copyright/" title="版权协议">版权协议</a><a class="footer-item" href="/comment/" title="评论协议">评论协议</a></div></div><div class="footer-group"><div class="footer-title-group"><h3 class="footer-title">友链</h3><button class="random-friends-btn" onclick="randomLinksList()" title="友链"><i class="solitude fas fa-arrows-rotate"></i></button></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2024 - 2025 By&nbsp;<a class="footer-bar-link" href="/"><img class="author-avatar" src= "" data-lazy-src="/img/favicon.ico">ByteWyrm</a></div><div class="beian-group"><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://icp.gov.moe/?keyword=20257710" title="萌ICP备20257710号"><span class="beian-name">萌ICP备20257710号</span></a></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="https://blog.devnest.top/rss2.xml" alt="RSS订阅">RSS订阅</a><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/everfu/hexo-theme-solitude/blob/main/LICENSE" alt="License"><i class="solitude fas fa-copyright"></i><i class="solitude fab fa-creative-commons-by"></i><i class="solitude fab fa-creative-commons-nc"></i><i class="solitude fab fa-creative-commons-nd"></i></a><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://boringbay.com/" alt="boringbay"><img src= "" data-lazy-src="https://boringbay.com/api/badge/www.efu.me" alt="boringbay"></a></div></div></div><div class="comment-barrage needEndHide"></div></footer></div><!-- right_menu--><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="solitude fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="solitude fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="solitude fas fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-top"><i class="solitude fas fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="solitude fas fa-clone"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="solitude fas fa-clipboard"></i><span>粘贴文本</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="solitude fas fa-comment-medical"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="solitude far fa-window-maximize"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="solitude fas fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="solitude fas fa-clone"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="solitude fas fa-cloud-arrow-down"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search"><i class="solitude fas fa-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="solitude fas fa-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="solitude fas fa-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="solitude fas fa-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="solitude fas fa-clone"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-randomPost" onclick="toRandomPost()||rm.hideRightMenu()"><i class="solitude fas fa-tower-broadcast"></i><span>随机文章</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/categories/')||rm.hideRightMenu()"><i class="solitude fas fa-clone"></i><span>全部分类</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/tags/')||rm.hideRightMenu()"><i class="solitude fas fa-tags"></i><span>全部标签</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-commentBarrage" onclick="sco.switchCommentBarrage()"><i class="solitude fas fa-comment"></i><span class="menu-commentBarrage-text">关闭热评</span></div><div class="rightMenu-item" id="menu-darkmode" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></div><div class="rightMenu-item" id="menu-translate"><i class="solitude fas fa-language"></i><span>轉為繁體</span></div></div></div><div id="rightmenu-mask"></div><!-- inject body--><div><script src="/js/utils.js?v=3.0.19"></script><script src="/js/main.js?v=3.0.19"></script><script src="/js/third_party/waterfall.min.js?v=3.0.19"></script><script src="https://fastly.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="https://fastly.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script><script src="https://fastly.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script><script src="/js/third_party/universe.min.js?v=3.0.19"></script><script>dark()
+</script><script src="/js/tw_cn.js?v=3.0.19"></script><script src="https://fastly.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://fastly.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script src="https://fastly.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.min.js"></script><script src="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=tencent&type=playlist&id=9499614106';</script><script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://fastly.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><script src="/js/right_menu.js?v=3.0.19"></script><meta name="msvalidate.01" content="AEB290A58354692E1628A88973985063"><script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.9.0-rc.1/echarts.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><script src="https://open.lightxi.com/unpkg/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script><script src="/custom/js/calendar.js"></script><script src="/custom/js/custom.js"></script><script defer="" pjax="" src="/custom/js/history.js"></script><div class="js-pjax"><script>(()=>{
+    const getGiscusTheme = theme => {
+        return theme === 'dark' ? 'dark' : 'light'
+    }
+
+    const loadGiscus = () => {
+        const config = Object.assign({
+            src: 'https://giscus.app/client.js',
+            'data-repo': 'HxCodeWarrior/hxcodewarrior.github.io',
+            'data-repo-id': 'R_kgDONc47iw',
+            'data-category-id': 'DIC_kwDONc47i84ClW8O',
+            'data-mapping': 'pathname',
+            'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+            'data-reactions-enabled': '1',
+            crossorigin: 'anonymous',
+            async: true
+        },null)
+
+        const ele = document.createElement('script')
+        for (let key in config) {
+            ele.setAttribute(key, config[key])
+        }
+        document.getElementById('giscus-wrap').appendChild(ele)
+    }
+
+    const changeGiscusTheme = theme => {
+        const sendMessage = message => {
+            const iframe = document.querySelector('iframe.giscus-frame')
+            if (!iframe) return
+            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+        }
+
+        sendMessage({
+            setConfig: {
+                theme: getGiscusTheme(theme)
+            }
+        });
+    }
+
+    utils.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+    if ('Giscus' === 'Giscus' || !true) {
+        if (true) {
+            const giscusWrap = document.getElementById('giscus-wrap')
+            if (giscusWrap) {
+                utils.loadComment(giscusWrap, loadGiscus)
+            }
+        } else {
+            loadGiscus()
+        }
+    } else {
+        window.loadTwoComment = loadGiscus
+    }
+})()</script><script defer="" pjax="" src="https://fastly.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js"></script></div></div><script>const links = [{"name":"先知社区","link":"https://xz.aliyun.com"},{"name":"FreeBuf","link":"https://www.freebuf.com"},{"name":"安全客","link":"https://www.anquanke.com"},{"name":"腾讯玄武实验室","link":"https://xlab.tencent.com"},{"name":"知道创宇","link":"https://blog.knownsec.com"},{"name":"绿盟科技博客","link":"http://blog.nsfocus.net"},{"name":"HackTheBox","link":"https://www.hackthebox.com"},{"name":"TryHackMe","link":"https://tryhackme.com"},{"name":"VulnHub","link":"https://www.vulnhub.com"},{"name":"Cybrary","link":"https://www.cybrary.it"},{"name":"Krebs on Security","link":"https://krebsonsecurity.com"},{"name":"Schneier on Security","link":"https://www.schneier.com"},{"name":"The Hacker News","link":"https://thehackernews.com"},{"name":"PortSwigger Blog","link":"https://portswigger.net/blog"},{"name":"CTF Wiki","link":"https://ctf-wiki.org"},{"name":"Nu1L Team","link":"https://nu1l.com"},{"name":"蓝莲花战队","link":"https://www.blue-lotus.net"},{"name":"r3kapig","link":"https://r3kapig.com"},{"name":"0ops","link":"https://blog.0ops.sjtu.cn"},{"name":"离别歌","link":"https://www.leavesongs.com"},{"name":"余弦","link":"https://evilcos.me"},{"name":"猪猪侠","link":"https://www.cnblogs.com/zpchcbd/"},{"name":"宁静致远","link":"https://payloads.online"},{"name":"安全小飞侠","link":"https://security.tencent.com/index.php/blog/author/35"},{"name":"瓦都剋","link":"https://evi1cg.me"},{"name":"渗透师","link":"https://www.shentoushi.top"},{"name":"安全小生","link":"https://chybeta.github.io"},{"name":"漏洞盒子","link":"https://www.vulbox.com/"},{"name":"长亭科技博客","link":"https://blog.chaitin.cn"}]
+const randomText = '点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：⌈ ${name} ⌋'
+function travelling() {
+    const link = links[utils.randomNum(links.length)];
+    Snackbar.show({
+        text: randomText.replace(/\$\{name}/,link.name),
+        duration: 8000,
+        pos: 'top-center',
+        actionText: '前往',
+        onActionClick: function(element) {
+            element.style.opacity = 0;
+            window.open(link.link, '_blank');
+        }
+    });
+}
+</script><script>function randomLinksList() {
+    const linkcard = document.getElementById('friend-links-in-footer');
+    if (linkcard == null) return;
+
+    let data = '';
+    let linksCopy = [...links];
+    let count = Math.min(3, linksCopy.length);
+
+    for (let i = 0; i < count; i++) {
+        let index = utils.randomNum(linksCopy.length);
+        const {link, name} = linksCopy[index];
+        data += `<a class="footer-item" href="${link}" target="_blank" rel="noopener noreferrer nofollow">${name}</a>`;
+        linksCopy.splice(index, 1);
+    }
+
+    linkcard.innerHTML = data + '<a class="footer-item" href="/links/">更多</a>';
+}</script><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude fas fa-xmark"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/CTF/')">CTF</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/CTF%E7%AB%9E%E8%B5%9B/')">CTF竞赛</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/')">网络空间安全</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/')">渗透测试</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/')">漏洞分析</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/WEB/')">WEB</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/REWERSE/')">REWERSE</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/MISC/')">MISC</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/PWN/')">PWN</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/MISC/')">MISC</a></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=3.0.19"></script><!-- music--><div class="needEndHide" id="nav-music"><div id="nav-music-hoverTips" onclick="sco.musicToggle()">音乐已暂停</div><meting-js id="9499614106" server="qq" type="playlist" mutex="true" preload="none" theme="var(--efu-main)" data-lrctype="0" order="random" volume="0.8"></meting-js></div><!-- hexo injector body_end start -->
+  <script data-pjax="" src="/js/github_calendar.js"></script>
+  <script data-pjax="">
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://gitcalendar.api.devnest.top/api?user=HxCodeWarrior";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="HxCodeWarrior";
+            var parent_div_git = document.getElementById('github-calendar');
+            var git_div_html = '<div id="github_container"></div>
+<div id="github_loading" style="display: none;">
+<div class="spinner"></div>
+</div>
+';
+            if(parent_div_git && location.pathname =='/charts/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('github-calendar')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style>null</style><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"superSample":2,"position":"left","width":150,"height":300,"hOffset":20,"vOffset":-10},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.3,"opacityOnHover":0.3,"opacity":0.95},"log":false});</script></body></html>
+        <script>
+            const posts = ["post/5eb0d11d/","post/3de6084b/","post/38cf3f8b/","post/9d0d3265/","post/9eeba12b/","post/b3f9757/","post/83746943/","post/7f32bd2a/","post/5b408a6c/","post/7d1cd1d7/","post/e87d94d0/","post/2a40ac23/","post/c8174473/","post/4f79e208/","post/16d0b8f5/","post/c95f8404/","post/d8c7bf5a/","post/a456a6ae/","post/735f6e02/","post/9876484b/","post/bb81c461/","post/c39f6c79/","post/e85a88e9/","post/bb947332/"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>
