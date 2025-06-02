@@ -11163,67 +11163,10 @@ figure.highlight .code-expand-btn:not(.expand-done) ~ pre {
   color: var(--efu-secondtext);
   border-radius: 8px;
 }
-#post-comment.move .comment-head .count span:first-child {
-  display: none;
-}
-#post-comment.move .comment-head .count span:last-child {
-  display: inline-block;
-}
-#post-comment.move #switch-btn::before {
-  transform: translateX(20px);
-}
-#post-comment.move .comment-wrap > div:first-child {
-  display: none;
-}
-#post-comment.move .comment-wrap > div:last-child {
-  display: block;
-  animation: 0.5s ease 0s 1 normal none running tabshow;
-}
 #post-comment .comment-head {
   font-size: 0.8em;
   margin: 0.5rem 0;
   position: relative;
-}
-#post-comment .comment-head .count span:last-child {
-  display: none;
-}
-#post-comment .comment-head .comment-switch {
-  display: inline-block;
-  float: right;
-  margin: 2px auto 0;
-  padding: 4px 16px;
-  width: max-content;
-  user-select: none;
-}
-#post-comment .comment-head .comment-switch #switch-btn {
-  position: relative;
-  display: inline-block;
-  margin: 0 8px 0;
-  width: 42px;
-  height: 22px;
-  border-radius: 34px;
-  background-color: var(--efu-main);
-  vertical-align: middle;
-  cursor: pointer;
-  transition: 0.4s;
-  border: var(--style-border-always);
-}
-#post-comment .comment-head .comment-switch #switch-btn::before {
-  position: absolute;
-  bottom: 3px;
-  left: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #fff;
-  content: '';
-  transition: 0.4s;
-}
-#post-comment .comment-wrap > div:last-child {
-  display: none;
-}
-#post-comment .comment-wrap > div:first-child {
-  animation: 0.5s ease 0s 1 normal none running tabshow;
 }
 #owo-big {
   position: fixed;

@@ -15,8 +15,36 @@
     <atom:link href="https://blog.devnest.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>专注于网络空间安全、CTF竞赛、人工智能、机器学习技术分享和最新安全动态的个人技术博客</description>
-    <pubDate>Mon, 02 Jun 2025 06:52:22 GMT</pubDate>
+    <pubDate>Mon, 02 Jun 2025 13:15:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>深入剖析 WEB 安全之 SSTI 漏洞：原理、利用与防御指南</title>
+      <link>https://blog.devnest.top/post/e18327c3/</link>
+      <guid>https://blog.devnest.top/post/e18327c3/</guid>
+      <pubDate>Mon, 02 Jun 2025 11:02:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;一、SSTI漏洞简介&quot;&gt;&lt;a href=&quot;#一、SSTI漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;一、SSTI漏洞简介&quot;&gt;&lt;/a&gt;一、SSTI漏洞简介&lt;/h2&gt;&lt;p&gt;在 Web 应用安全领域，服务器端模板注入（Server-Side Temp</description>
+        
+      
+      
+      
+      
+      <category domain="https://blog.devnest.top/categories/WEB/">WEB</category>
+      
+      
+      <category domain="https://blog.devnest.top/tags/WEB/">WEB</category>
+      
+      <category domain="https://blog.devnest.top/tags/%E6%B3%A8%E5%85%A5%E7%B1%BB%E6%BC%8F%E6%B4%9E/">注入类漏洞</category>
+      
+      <category domain="https://blog.devnest.top/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%AE%89%E5%85%A8/">模板引擎安全</category>
+      
+      
+      <comments>https://blog.devnest.top/post/e18327c3/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Solitude渲染数学公式Katex配置</title>
@@ -117,9 +145,9 @@
       <category domain="https://blog.devnest.top/categories/Crypto/">Crypto</category>
       
       
-      <category domain="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/">曼彻斯特编码</category>
-      
       <category domain="https://blog.devnest.top/tags/Crypto/">Crypto</category>
+      
+      <category domain="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/">曼彻斯特编码</category>
       
       
       <comments>https://blog.devnest.top/post/38669fb1/#disqus_thread</comments>
@@ -176,11 +204,11 @@
       <category domain="https://blog.devnest.top/categories/%E9%9D%A2%E8%AF%95/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验</category>
       
       
-      <category domain="https://blog.devnest.top/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使</category>
-      
       <category domain="https://blog.devnest.top/tags/%E9%9D%A2%E8%AF%95/">面试</category>
       
       <category domain="https://blog.devnest.top/tags/%E5%8D%8E%E4%B8%BA/">华为</category>
+      
+      <category domain="https://blog.devnest.top/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使</category>
       
       <category domain="https://blog.devnest.top/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验</category>
       
@@ -208,9 +236,9 @@
       
       <category domain="https://blog.devnest.top/tags/MISC/">MISC</category>
       
-      <category domain="https://blog.devnest.top/tags/Crypto/">Crypto</category>
-      
       <category domain="https://blog.devnest.top/tags/CV/">CV</category>
+      
+      <category domain="https://blog.devnest.top/tags/Crypto/">Crypto</category>
       
       
       <comments>https://blog.devnest.top/post/38cf3f8b/#disqus_thread</comments>
@@ -276,9 +304,9 @@
       
       <category domain="https://blog.devnest.top/tags/ISCC/">ISCC</category>
       
-      <category domain="https://blog.devnest.top/tags/Writeup/">Writeup</category>
-      
       <category domain="https://blog.devnest.top/tags/MOBILE/">MOBILE</category>
+      
+      <category domain="https://blog.devnest.top/tags/Writeup/">Writeup</category>
       
       
       <comments>https://blog.devnest.top/post/9eeba12b/#disqus_thread</comments>
@@ -346,9 +374,9 @@
       
       <category domain="https://blog.devnest.top/tags/ISCC/">ISCC</category>
       
-      <category domain="https://blog.devnest.top/tags/MISC/">MISC</category>
-      
       <category domain="https://blog.devnest.top/tags/Writeup/">Writeup</category>
+      
+      <category domain="https://blog.devnest.top/tags/MISC/">MISC</category>
       
       
       <comments>https://blog.devnest.top/post/83746943/#disqus_thread</comments>
@@ -380,11 +408,11 @@
       
       <category domain="https://blog.devnest.top/tags/CTF/">CTF</category>
       
+      <category domain="https://blog.devnest.top/tags/WEB/">WEB</category>
+      
       <category domain="https://blog.devnest.top/tags/ISCC/">ISCC</category>
       
       <category domain="https://blog.devnest.top/tags/Writeup/">Writeup</category>
-      
-      <category domain="https://blog.devnest.top/tags/WEB/">WEB</category>
       
       
       <comments>https://blog.devnest.top/post/7f32bd2a/#disqus_thread</comments>

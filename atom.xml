@@ -6,7 +6,7 @@
   <link href="https://blog.devnest.top/atom.xml" rel="self"/>
   
   <link href="https://blog.devnest.top/"/>
-  <updated>2025-06-02T06:52:22.000Z</updated>
+  <updated>2025-06-02T13:15:32.080Z</updated>
   <id>https://blog.devnest.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入剖析 WEB 安全之 SSTI 漏洞：原理、利用与防御指南</title>
+    <link href="https://blog.devnest.top/post/e18327c3/"/>
+    <id>https://blog.devnest.top/post/e18327c3/</id>
+    <published>2025-06-02T11:02:43.000Z</published>
+    <updated>2025-06-02T13:15:32.080Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、SSTI漏洞简介&quot;&gt;&lt;a href=&quot;#一、SSTI漏洞简介&quot; class=&quot;headerlink&quot; title=&quot;一、SSTI漏洞简介&quot;&gt;&lt;/a&gt;一、SSTI漏洞简介&lt;/h2&gt;&lt;p&gt;在 Web 应用安全领域，服务器端模板注入（Server-Side Temp</summary>
+      
+    
+    
+    
+    <category term="WEB" scheme="https://blog.devnest.top/categories/WEB/"/>
+    
+    
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
+    
+    <category term="注入类漏洞" scheme="https://blog.devnest.top/tags/%E6%B3%A8%E5%85%A5%E7%B1%BB%E6%BC%8F%E6%B4%9E/"/>
+    
+    <category term="模板引擎安全" scheme="https://blog.devnest.top/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Solitude渲染数学公式Katex配置</title>
@@ -97,7 +123,7 @@
     <link href="https://blog.devnest.top/post/38669fb1/"/>
     <id>https://blog.devnest.top/post/38669fb1/</id>
     <published>2025-05-31T08:32:40.000Z</published>
-    <updated>2025-06-01T06:41:18.907Z</updated>
+    <updated>2025-06-02T11:31:39.223Z</updated>
     
     
       
@@ -110,9 +136,9 @@
     <category term="Crypto" scheme="https://blog.devnest.top/categories/Crypto/"/>
     
     
-    <category term="曼彻斯特编码" scheme="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/"/>
-    
     <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
+    
+    <category term="曼彻斯特编码" scheme="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
@@ -121,7 +147,7 @@
     <link href="https://blog.devnest.top/post/5eb0d11d/"/>
     <id>https://blog.devnest.top/post/5eb0d11d/</id>
     <published>2025-05-30T14:07:31.000Z</published>
-    <updated>2025-05-30T14:09:21.221Z</updated>
+    <updated>2025-06-02T11:31:20.885Z</updated>
     
     
       
@@ -148,7 +174,7 @@
     <link href="https://blog.devnest.top/post/3de6084b/"/>
     <id>https://blog.devnest.top/post/3de6084b/</id>
     <published>2025-05-30T14:07:12.000Z</published>
-    <updated>2025-05-30T14:08:28.476Z</updated>
+    <updated>2025-06-02T11:31:25.904Z</updated>
     
     
       
@@ -165,11 +191,11 @@
     <category term="面试经验" scheme="https://blog.devnest.top/categories/%E9%9D%A2%E8%AF%95/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/"/>
     
     
-    <category term="校园大使" scheme="https://blog.devnest.top/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/"/>
-    
     <category term="面试" scheme="https://blog.devnest.top/tags/%E9%9D%A2%E8%AF%95/"/>
     
     <category term="华为" scheme="https://blog.devnest.top/tags/%E5%8D%8E%E4%B8%BA/"/>
+    
+    <category term="校园大使" scheme="https://blog.devnest.top/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/"/>
     
     <category term="面试经验" scheme="https://blog.devnest.top/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/"/>
     
@@ -180,7 +206,7 @@
     <link href="https://blog.devnest.top/post/38cf3f8b/"/>
     <id>https://blog.devnest.top/post/38cf3f8b/</id>
     <published>2025-05-30T12:42:48.000Z</published>
-    <updated>2025-06-02T07:06:04.304Z</updated>
+    <updated>2025-06-02T12:45:41.926Z</updated>
     
     
       
@@ -195,9 +221,9 @@
     
     <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
     
-    <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
-    
     <category term="CV" scheme="https://blog.devnest.top/tags/CV/"/>
+    
+    <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
     
   </entry>
   
@@ -206,7 +232,7 @@
     <link href="https://blog.devnest.top/post/9d0d3265/"/>
     <id>https://blog.devnest.top/post/9d0d3265/</id>
     <published>2025-05-30T05:37:22.000Z</published>
-    <updated>2025-05-30T14:17:35.198Z</updated>
+    <updated>2025-06-02T11:30:58.820Z</updated>
     
     
       
@@ -238,7 +264,7 @@
     <link href="https://blog.devnest.top/post/9eeba12b/"/>
     <id>https://blog.devnest.top/post/9eeba12b/</id>
     <published>2025-05-30T04:47:22.000Z</published>
-    <updated>2025-05-30T14:17:16.714Z</updated>
+    <updated>2025-06-02T11:31:09.037Z</updated>
     
     
       
@@ -259,9 +285,9 @@
     
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
-    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
-    
     <category term="MOBILE" scheme="https://blog.devnest.top/tags/MOBILE/"/>
+    
+    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
     
   </entry>
   
@@ -270,7 +296,7 @@
     <link href="https://blog.devnest.top/post/b3f9757/"/>
     <id>https://blog.devnest.top/post/b3f9757/</id>
     <published>2025-05-30T02:06:48.000Z</published>
-    <updated>2025-05-30T14:17:26.346Z</updated>
+    <updated>2025-06-02T11:31:03.970Z</updated>
     
     
       
@@ -302,7 +328,7 @@
     <link href="https://blog.devnest.top/post/83746943/"/>
     <id>https://blog.devnest.top/post/83746943/</id>
     <published>2025-05-29T06:37:39.000Z</published>
-    <updated>2025-06-01T08:47:44.033Z</updated>
+    <updated>2025-06-02T11:31:14.062Z</updated>
     
     
       
@@ -325,9 +351,9 @@
     
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
-    <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
-    
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
+    
+    <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
     
   </entry>
   
@@ -336,7 +362,7 @@
     <link href="https://blog.devnest.top/post/7f32bd2a/"/>
     <id>https://blog.devnest.top/post/7f32bd2a/</id>
     <published>2025-05-21T13:13:24.000Z</published>
-    <updated>2025-05-31T15:45:30.355Z</updated>
+    <updated>2025-06-02T11:30:53.843Z</updated>
     
     
       
@@ -357,11 +383,11 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
+    
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
-    
-    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
     
   </entry>
   
@@ -370,7 +396,7 @@
     <link href="https://blog.devnest.top/post/5b408a6c/"/>
     <id>https://blog.devnest.top/post/5b408a6c/</id>
     <published>2025-05-21T12:36:38.000Z</published>
-    <updated>2025-05-23T06:27:28.551Z</updated>
+    <updated>2025-06-02T11:30:43.715Z</updated>
     
     
       
