@@ -6,7 +6,7 @@
   <link href="https://blog.devnest.top/atom.xml" rel="self"/>
   
   <link href="https://blog.devnest.top/"/>
-  <updated>2025-05-31T11:38:30.951Z</updated>
+  <updated>2025-06-02T06:52:22.000Z</updated>
   <id>https://blog.devnest.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Solitude渲染数学公式Katex配置</title>
+    <link href="https://blog.devnest.top/post/2f513db5/"/>
+    <id>https://blog.devnest.top/post/2f513db5/</id>
+    <published>2025-06-02T06:52:22.000Z</published>
+    <updated>2025-06-02T06:52:22.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;前两天准备写一篇关于猫脸变换的文章，里边需要穿插许多公式，Solitude主题是默认支持Katex的，打开&lt;strong&gt;e</summary>
+      
+    
+    
+    
+    <category term="Solitude主题" scheme="https://blog.devnest.top/categories/Solitude%E4%B8%BB%E9%A2%98/"/>
+    
+    
+    <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Solitude主题" scheme="https://blog.devnest.top/tags/Solitude%E4%B8%BB%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>内存取证—Volatility详细安装教程</title>
@@ -86,9 +110,9 @@
     <category term="Crypto" scheme="https://blog.devnest.top/categories/Crypto/"/>
     
     
-    <category term="曼彻斯特编码" scheme="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/"/>
-    
     <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
+    
+    <category term="曼彻斯特编码" scheme="https://blog.devnest.top/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
@@ -152,16 +176,16 @@
   </entry>
   
   <entry>
-    <title>猫脸变换</title>
+    <title>图片的猫脸变换（Arnold）：从数学原理到图像魔法的全解析</title>
     <link href="https://blog.devnest.top/post/38cf3f8b/"/>
     <id>https://blog.devnest.top/post/38cf3f8b/</id>
     <published>2025-05-30T12:42:48.000Z</published>
-    <updated>2025-05-30T14:10:14.353Z</updated>
+    <updated>2025-06-02T07:06:04.304Z</updated>
     
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;h2 id=&quot;一、Arnold变换的起源与本质：为什么叫“猫脸变换”？&quot;&gt;&lt;a href=&quot;#一、Arnold变换的起源与本质：为什么叫“猫脸变换”？&quot; class=&quot;headerlink&quot; title=&quot;一、Arnold变换的起源与本质：为什么叫“猫脸变换”？&quot;&gt;&lt;/a&gt;一、</summary>
       
     
     
@@ -171,9 +195,9 @@
     
     <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
     
-    <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
-    
     <category term="CV" scheme="https://blog.devnest.top/tags/CV/"/>
+    
+    <category term="Crypto" scheme="https://blog.devnest.top/tags/Crypto/"/>
     
   </entry>
   
@@ -278,7 +302,7 @@
     <link href="https://blog.devnest.top/post/83746943/"/>
     <id>https://blog.devnest.top/post/83746943/</id>
     <published>2025-05-29T06:37:39.000Z</published>
-    <updated>2025-05-31T15:45:25.130Z</updated>
+    <updated>2025-06-01T08:47:44.033Z</updated>
     
     
       
@@ -333,11 +357,11 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
-    
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
+    
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
     
   </entry>
   
@@ -559,7 +583,7 @@
     
       
       
-    <summary type="html">&lt;h1 id=&quot;VulFocus靶场访问-虚拟机-物理机&quot;&gt;&lt;a href=&quot;#VulFocus靶场访问-虚拟机-物理机&quot; class=&quot;headerlink&quot; title=&quot;VulFocus靶场访问(虚拟机&amp;#x2F;物理机)&quot;&gt;&lt;/a&gt;VulFocus靶场访问(虚拟机&amp;#x2</summary>
+    <summary type="html">&lt;h1 id=&quot;VulFocus靶场访问-虚拟机-物理机&quot;&gt;&lt;a href=&quot;#VulFocus靶场访问-虚拟机-物理机&quot; class=&quot;headerlink&quot; title=&quot;VulFocus靶场访问(虚拟机/物理机)&quot;&gt;&lt;/a&gt;VulFocus靶场访问(虚拟机/物理机)&lt;/h1</summary>
       
     
     
@@ -571,11 +595,11 @@
     <category term="教程" scheme="https://blog.devnest.top/categories/VulFocus/%E9%9D%B6%E5%9C%BA/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
+    <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
-    <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
     
   </entry>
   
@@ -635,11 +659,11 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
+    <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
     
-    <category term="教程" scheme="https://blog.devnest.top/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
     
     <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
@@ -669,9 +693,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
-    
     <category term="靶场" scheme="https://blog.devnest.top/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+    <category term="VulFocus" scheme="https://blog.devnest.top/tags/VulFocus/"/>
     
     <category term="CTF平台" scheme="https://blog.devnest.top/tags/CTF%E5%B9%B3%E5%8F%B0/"/>
     
