@@ -26,7 +26,8 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不</summary>
       
     
     
@@ -50,7 +51,8 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不</summary>
       
     
     
@@ -74,7 +76,8 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不</summary>
       
     
     
@@ -98,7 +101,8 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不</summary>
       
     
     
@@ -122,7 +126,8 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不</summary>
       
     
     
@@ -146,7 +151,11 @@
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+    <summary type="html">&lt;pre class=&quot;mermaid&quot;&gt;sequenceDiagram
+    participant Generate as 生成循环
+    participant Model as 模型主体
+    participant Decoder as 解码层
+    parti</summary>
       
     
     
@@ -161,7 +170,7 @@
   </entry>
   
   <entry>
-    <title>Transformer——归一化详解</title>
+    <title>Transformer—归一化详解</title>
     <link href="https://blog.devnest.top/post/d4b74a75/"/>
     <id>https://blog.devnest.top/post/d4b74a75/</id>
     <published>2025-08-05T15:09:20.000Z</published>
@@ -170,11 +179,9 @@
     
       
       
-    <summary type="html">&lt;pre class=&quot;mermaid&quot;&gt;sequenceDiagram
-    participant Generate as 生成循环
-    participant Model as 模型主体
-    participant Decoder as 解码层
-    parti</summary>
+    <summary type="html">&lt;p&gt;在 Transformer 的世界里，归一化就像咖啡里的牛奶，虽然它不是主角（注意力才是主角），但没它味道就差远了。&lt;br&gt;今天我们会从原理到数学，再到应用和实战，帮你彻底搞懂 LayerNorm、RMSNorm 等各种归一化方法。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;🚀-</summary>
       
     
     
@@ -469,9 +476,9 @@
     
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
-    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
-    
     <category term="MOBILE" scheme="https://blog.devnest.top/tags/MOBILE/"/>
+    
+    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
     
   </entry>
   
@@ -533,9 +540,9 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
-    <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
-    
     <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
+    
+    <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
     
@@ -567,11 +574,11 @@
     
     <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
+    
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
-    
-    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
     
   </entry>
   
@@ -929,9 +936,9 @@
     <category term="CTF" scheme="https://blog.devnest.top/categories/CTF/"/>
     
     
-    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
-    
     <category term="竞赛" scheme="https://blog.devnest.top/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
     <category term="国内竞赛" scheme="https://blog.devnest.top/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/"/>
     
@@ -959,13 +966,13 @@
     <category term="SSTI" scheme="https://blog.devnest.top/categories/CTF/WEB/SSTI/"/>
     
     
-    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
-    
-    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
-    
     <category term="竞赛" scheme="https://blog.devnest.top/tags/%E7%AB%9E%E8%B5%9B/"/>
     
+    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
+    
     <category term="国内竞赛" scheme="https://blog.devnest.top/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
     
     <category term="SSTI" scheme="https://blog.devnest.top/tags/SSTI/"/>
     
@@ -993,13 +1000,13 @@
     <category term="SSRF" scheme="https://blog.devnest.top/categories/CTF/WEB/SSRF/"/>
     
     
-    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
-    
-    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
-    
     <category term="竞赛" scheme="https://blog.devnest.top/tags/%E7%AB%9E%E8%B5%9B/"/>
     
+    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
+    
     <category term="国内竞赛" scheme="https://blog.devnest.top/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="WEB" scheme="https://blog.devnest.top/tags/WEB/"/>
     
     <category term="SSRF" scheme="https://blog.devnest.top/tags/SSRF/"/>
     
@@ -1023,9 +1030,9 @@
     <category term="CTF" scheme="https://blog.devnest.top/categories/CTF/"/>
     
     
-    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
-    
     <category term="竞赛" scheme="https://blog.devnest.top/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+    <category term="CTF" scheme="https://blog.devnest.top/tags/CTF/"/>
     
     <category term="国内竞赛" scheme="https://blog.devnest.top/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/"/>
     
