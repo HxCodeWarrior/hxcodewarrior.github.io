@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://blog.devnest.top/tags/LLM/</loc>
+        <lastmod>2025-08-14T12:55:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://blog.devnest.top/tags/Transformer/</loc>
+        <lastmod>2025-08-14T12:55:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.devnest.top/tags/Tools/</loc>
         <lastmod>2025-06-03T04:10:36.450Z</lastmod>
         <changefreq>weekly</changefreq>

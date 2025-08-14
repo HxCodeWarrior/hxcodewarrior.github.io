@@ -6,7 +6,7 @@
   <link href="https://blog.devnest.top/atom.xml" rel="self"/>
   
   <link href="https://blog.devnest.top/"/>
-  <updated>2025-06-02T13:15:32.080Z</updated>
+  <updated>2025-08-14T12:55:38.000Z</updated>
   <id>https://blog.devnest.top/</id>
   
   <author>
@@ -15,6 +15,178 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Transformer—嵌入层详解</title>
+    <link href="https://blog.devnest.top/post/73649d23/"/>
+    <id>https://blog.devnest.top/post/73649d23/</id>
+    <published>2025-08-14T12:55:38.000Z</published>
+    <updated>2025-08-14T12:55:38.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer—多头自注意力机制详解</title>
+    <link href="https://blog.devnest.top/post/2f9b0a/"/>
+    <id>https://blog.devnest.top/post/2f9b0a/</id>
+    <published>2025-08-14T12:55:07.000Z</published>
+    <updated>2025-08-14T12:55:07.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer—门控多层感知机详解</title>
+    <link href="https://blog.devnest.top/post/f6514c02/"/>
+    <id>https://blog.devnest.top/post/f6514c02/</id>
+    <published>2025-08-14T12:32:37.000Z</published>
+    <updated>2025-08-14T12:32:37.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer架构介绍</title>
+    <link href="https://blog.devnest.top/post/8204ce2b/"/>
+    <id>https://blog.devnest.top/post/8204ce2b/</id>
+    <published>2025-08-14T12:31:26.000Z</published>
+    <updated>2025-08-14T12:31:26.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer—位置编码详解</title>
+    <link href="https://blog.devnest.top/post/303f8662/"/>
+    <id>https://blog.devnest.top/post/303f8662/</id>
+    <published>2025-08-14T12:30:46.000Z</published>
+    <updated>2025-08-14T12:30:46.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer—KVCache详解</title>
+    <link href="https://blog.devnest.top/post/9ce26495/"/>
+    <id>https://blog.devnest.top/post/9ce26495/</id>
+    <published>2025-08-13T04:16:10.000Z</published>
+    <updated>2025-08-13T04:16:10.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css&quot;&gt;&lt;script src=&quot;https://fastly.jsdelivr.ne</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer——归一化详解</title>
+    <link href="https://blog.devnest.top/post/d4b74a75/"/>
+    <id>https://blog.devnest.top/post/d4b74a75/</id>
+    <published>2025-08-05T15:09:20.000Z</published>
+    <updated>2025-08-05T15:09:20.000Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;pre class=&quot;mermaid&quot;&gt;sequenceDiagram
+    participant Generate as 生成循环
+    participant Model as 模型主体
+    participant Decoder as 解码层
+    parti</summary>
+      
+    
+    
+    
+    <category term="LLM" scheme="https://blog.devnest.top/categories/LLM/"/>
+    
+    
+    <category term="Transformer" scheme="https://blog.devnest.top/tags/Transformer/"/>
+    
+    <category term="LLM" scheme="https://blog.devnest.top/tags/LLM/"/>
+    
+  </entry>
   
   <entry>
     <title>深入剖析 WEB 安全之 SSTI 漏洞：原理、利用与防御指南</title>
@@ -265,9 +437,9 @@
     
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
-    <category term="REVERSE" scheme="https://blog.devnest.top/tags/REVERSE/"/>
-    
     <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
+    
+    <category term="REVERSE" scheme="https://blog.devnest.top/tags/REVERSE/"/>
     
   </entry>
   
@@ -363,9 +535,9 @@
     
     <category term="ISCC" scheme="https://blog.devnest.top/tags/ISCC/"/>
     
-    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
-    
     <category term="MISC" scheme="https://blog.devnest.top/tags/MISC/"/>
+    
+    <category term="Writeup" scheme="https://blog.devnest.top/tags/Writeup/"/>
     
   </entry>
   

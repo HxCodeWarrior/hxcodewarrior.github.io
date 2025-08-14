@@ -4,6 +4,195 @@
   
     
     <entry>
+      <title>Transformer—嵌入层详解</title>
+      <link href="/post/73649d23/"/>
+      <url>/post/73649d23/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer—多头自注意力机制详解</title>
+      <link href="/post/2f9b0a/"/>
+      <url>/post/2f9b0a/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer—门控多层感知机详解</title>
+      <link href="/post/f6514c02/"/>
+      <url>/post/f6514c02/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer架构介绍</title>
+      <link href="/post/8204ce2b/"/>
+      <url>/post/8204ce2b/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer—位置编码详解</title>
+      <link href="/post/303f8662/"/>
+      <url>/post/303f8662/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer—KVCache详解</title>
+      <link href="/post/9ce26495/"/>
+      <url>/post/9ce26495/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transformer——归一化详解</title>
+      <link href="/post/d4b74a75/"/>
+      <url>/post/d4b74a75/</url>
+      
+        <content type="html"><![CDATA[<pre class="mermaid">sequenceDiagram    participant Generate as 生成循环    participant Model as 模型主体    participant Decoder as 解码层    participant Attention as 注意力层    participant Cache as KVCache    Generate->>Model: 输入token+缓存    Model->>Decoder: 传递缓存    loop 每层处理        Decoder->>Attention: 传递缓存+层索引        alt 使用缓存            Attention->>Cache: 获取历史K/V            Cache-->>Attention: 返回历史K/V            Attention->>Attention: 拼接当前K/V            Attention->>Cache: 追加当前K/V        else 无缓存            Attention->>Attention: 全量计算        end        Attention-->>Decoder: 输出+更新标志    end    Decoder-->>Model: 层输出    Model-->>Generate: 输出logits+更新缓存</pre><hr><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>思维的碰撞，往往诞生于一场积极的交流；智慧的火花，常在热烈的讨论中闪耀。如果您在这片文字的海洋里，找到了共鸣或产生了独特的见解，不妨在<strong>评论区</strong>留下您的声音。我珍视每一位读者的思考，期待与您一同构建一个充满活力的思想社区。<br>同时，为了不错过更多精彩内容和深度交流的机会，也欢迎大家加入我：</p><ul><li><p>📣 微信公众号 <strong>‘ByteWyrm’</strong></p></li><li><p>📡 <strong><a href="https://blog.devnest.top/subscribe/">RSS订阅</a></strong></p><div class="liushen-tag-link">  <a class="tag-Link" target="_blank" rel="noopener" href="https://blog.devnest.top/subscribe/">    <div class="tag-link-tips">⚠️ 引用站外地址，不保证站点的可用性和安全性，慎重点</div>    <div class="tag-link-bottom">      <div class="tag-link-left"           style="background-image: url(https://api.xinac.net/icon/?url=devnest.top)"          onerror="this.style.backgroundImage='url(/images/default-avatar.webp)'"></div>      <div class="tag-link-right">        <div class="tag-link-title">RSS订阅</div>        <div class="tag-link-sitename">ByteWyrm&#39;s Blog的RSS订阅</div>      </div>      <i class="fa-solid fa-angle-right"></i>    </div>  </a></div></li><li><p>🐙 <strong><a href="https://github.com/HxCodeWarrior">GitHub</a></strong></p><div class="liushen-tag-link">  <a class="tag-Link" target="_blank" rel="noopener" href="https://github.com/HxCodeWarrior/">    <div class="tag-link-tips">⚠️ 引用站外地址，不保证站点的可用性和安全性，慎重点</div>    <div class="tag-link-bottom">      <div class="tag-link-left"           style="background-image: url(https://p.liiiu.cn/i/2024/07/27/66a461a3098aa.webp)"          onerror="this.style.backgroundImage='url(/images/default-avatar.webp)'"></div>      <div class="tag-link-right">        <div class="tag-link-title">Github世界</div>        <div class="tag-link-sitename">ByteWyrm&#39;s Github</div>      </div>      <i class="fa-solid fa-angle-right"></i>    </div>  </a></div></li><li><p>🤝 <strong><a href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml">友链申请</a></strong></p><div class="liushen-tag-link">  <a class="tag-Link" target="_blank" rel="noopener" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/">    <div class="tag-link-tips">⚠️ 引用站外地址，不保证站点的可用性和安全性，慎重点</div>    <div class="tag-link-bottom">      <div class="tag-link-left"           style="background-image: url(https://p.liiiu.cn/i/2024/07/27/66a461a3098aa.webp)"          onerror="this.style.backgroundImage='url(/images/default-avatar.webp)'"></div>      <div class="tag-link-right">        <div class="tag-link-title">友链申请</div>        <div class="tag-link-sitename">ByteWyrm&#39;s Blog友链申请</div>      </div>      <i class="fa-solid fa-angle-right"></i>    </div>  </a></div></li></ul><p>无论是<strong>评论区</strong>的畅所欲言，还是在各个平台上与我们并肩同行，都将是推动我不断前行的动力。ByteWyrm，因您的参与而更加精彩！</p><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script><link rel="stylesheet" href="/css/markmap.css"><script src="/js/markmap.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LLM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transformer </tag>
+            
+            <tag> LLM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入剖析 WEB 安全之 SSTI 漏洞：原理、利用与防御指南</title>
       <link href="/post/e18327c3/"/>
       <url>/post/e18327c3/</url>
@@ -274,9 +463,9 @@
             
             <tag> ISCC </tag>
             
-            <tag> REVERSE </tag>
-            
             <tag> Writeup </tag>
+            
+            <tag> REVERSE </tag>
             
         </tags>
       
@@ -381,9 +570,9 @@
             
             <tag> ISCC </tag>
             
-            <tag> Writeup </tag>
-            
             <tag> MISC </tag>
+            
+            <tag> Writeup </tag>
             
         </tags>
       

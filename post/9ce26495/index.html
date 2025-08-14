@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Transformer—KVCache详解 | ByteWyrm's Blog</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=3.0.19"><!-- inject head--><link rel="canonical" href="https://blog.devnest.top/post/9ce26495/index.html"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><!-- aplayer--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><!-- swiper--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css"><!-- fancybox ui--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.min.css"><!-- katex--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><!-- Open Graph--><meta name="description" content=""><!-- pwa--><meta name="apple-mobile-web-app-capable" content="ByteWyrm's Blog"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/favicon.ico"><link rel="apple-touch-icon" href="/img/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '3.0.19' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>let mdate = "7-7,9-18,12-13";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
+    }
+}
+</script><meta name="msvalidate.01" content="AEB290A58354692E1628A88973985063"><script type="text/javascript" src="/custom/js/baidu_statistics.js"></script><script type="text/javascript" src="/custom/js/51la_statistics.js"></script><script defer="" src="https://umami.blog.devnest.top/script.js" data-website-id="4bcd569c-89fd-41ea-8f6c-069147d305fd"></script><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><script data-pjax="" src="/custom/js/replycontent.js"></script><script src="/custom/js/welcome.js"></script><link rel="stylesheet" href="/custom/css/twikoo_pretty.css"><link rel="stylesheet" href="/custom/css/custom.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+            },
+            diffDateFormat: (selector) => {
+                selector.forEach(item => {
+                    const date = new Date(item.getAttribute('datetime') || item.textContent);
+                    item.textContent = (date.getMonth() + 1).toString()+'/'+date.getDate().toString();
+                });
+            },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":true,"path":"search.xml"},
+    runtime: '2024-09-01 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/static/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: true,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。","loading":"搜索中..."},"barrage":{"title":"热评"}},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: [],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: {"avatar":"https://gravatar.com/avatar","commentBarrage":true},
+    lightbox: 'fancybox',
+    right_menu: {"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载","music":{"start":"播放音乐","stop":"暂停音乐"},"barrage":{"open":"显示热评","close":"关闭热评"},"translate":true},
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: {"jump":"别走呀！","back":"ヾ(≧∇≦*)ゝHey, hey, you fell for it."},
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: false,
+    comment: true,
+    ai_text: false,
+    color: false,
+}</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="ByteWyrm's Blog" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="ByteWyrm's Blog" type="application/rss+xml">
+</head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude fas fa-xmark"></i></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论<a class="recent-comment-more" href="/recentcomments/" title="最近评论"><i class="solitude fas fa-circle-chevron-right"></i></a></div></div><div class="console_recentcomments"><script pjax="">(async () => {
+    document.querySelector('.console-card .console_recentcomments').textContent = `加载中...`
+    const emojiReg = /<img [^>]+ class="wl-emoji">/g
+    let cache = utils.saveToLocal.get('waline-recent-comments-console')
+    if (cache) {
+        setHtml(document.querySelector('.console-card .console_recentcomments'), cache)
+        return
+    }
+    let ls = []
+    await fetch('https://waline.api.devnest.top//api/comment?type=recent&count=6', {method: 'GET'}).then(async res => res.json())
+        .then(async data => {
+            for (const i of data.data) {
+                let title = ''
+                if (i.url) {
+                    await fetch(i.url).then(res => res.text()).then(html => {
+                        const parser = new DOMParser()
+                        const doc = parser.parseFromString(html, 'text/html')
+                        title = doc.querySelector('title').innerText
+                    }).catch(() => {
+                        title = i.url
+                    })
+                }
+                if (title.indexOf('|') > 0) {
+                    title = title.split('|')[0]
+                }
+                ls.push({
+                    title: title,
+                    url: i.url,
+                    nick: i.nick,
+                    avatar: i.avatar,
+                    time: new Date(i.time),
+                    content: formatContent(i.comment)
+                })
+            }
+            setHtml(document.querySelector('.console-card .console_recentcomments'), ls)
+            utils.saveToLocal.set('waline-recent-comments-console', ls, 0.2)
+        })
+
+    function setHtml(el, data) {
+        el.innerHTML = data.length !== 0 ? data.map(i => `
+                            <div class="comment-card" title="${i.title}" onclick="pjax.loadUrl('${i.url}')">
+                                <div class="comment-info">
+                                    <img src="${i.avatar}" class="nolazyload" alt="${i.nick}">
+                                    <div>
+                                        <span class="comment-user">${i.nick}</span>
+                                    </div>
+                                    <time class="comment-time" datetime="${i.time}"></time>
+                                </div>
+                                <div class="comment-content">${i.content}</div>
+                                <div class="comment-title">
+                                <i class="solitude fas fa-comment"></i>
+                                ${i.title}</div>
+                            </div>
+                        `).join('') : `暂无评论...`
+        if (typeof utils !== 'undefined') utils.diffDateFormat(document.querySelectorAll('.comment-time'))
+        else {
+            document.addEventListener('pjax:complete', () => utils.diffDateFormat(document.querySelectorAll('.comment-time')))
+            document.addEventListener('DOMContentLoaded', () => utils.diffDateFormat(document.querySelectorAll('.comment-time')))
+        }
+    }
+
+    function formatContent(content) {
+        content = content.replace(emojiReg, '[表情]')
+        content = content.replace(/<img.*?>/g, '[图片]');
+        content = content.replace(/<a.*?>.*?<\/a>/g, '[链接]');
+        content = content.replace(/<pre.*?>.*?<\/pre>/g, '[代码]');
+        content = content.replace(/<.*?>/g, '');
+        return content
+    }
+})()</script></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/CTF/">CTF<sup>16</sup></a><a href="/tags/ISCC/">ISCC<sup>5</sup></a><a href="/tags/MISC/">MISC<sup>4</sup></a><a href="/tags/Writeup/">Writeup<sup>5</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/">教程<sup>9</sup></a><a href="/tags/Solitude%E4%B8%BB%E9%A2%98/">Solitude主题<sup>1</sup></a><a href="/tags/MOBILE/">MOBILE<sup>1</sup></a><a href="/tags/REVERSE/">REVERSE<sup>1</sup></a><a href="/tags/WEB/">WEB<sup>4</sup></a><a href="/tags/PWN/">PWN<sup>1</sup></a><a href="/tags/CV/">CV<sup>1</sup></a><a href="/tags/Crypto/">Crypto<sup>2</sup></a><a href="/tags/%E7%AB%9E%E8%B5%9B/">竞赛<sup>4</sup></a><a href="/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/">国内竞赛<sup>4</sup></a><a href="/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/">曼彻斯特编码<sup>1</sup></a><a href="/tags/SSRF/">SSRF<sup>1</sup></a><a href="/tags/Transformer/">Transformer<sup>7</sup></a><a href="/tags/LLM/">LLM<sup>7</sup></a><a href="/tags/SSTI/">SSTI<sup>1</sup></a><a href="/tags/%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/">赛后总结<sup>1</sup></a><a href="/tags/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">内存取证<sup>2</sup></a><a href="/tags/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">内存取证工具<sup>2</sup></a><a href="/tags/Tools/">Tools<sup>2</sup></a><a href="/tags/%E6%B3%A8%E5%85%A5%E7%B1%BB%E6%BC%8F%E6%B4%9E/">注入类漏洞<sup>1</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%AE%89%E5%85%A8/">模板引擎安全<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使<sup>2</sup></a><a href="/tags/%E6%8A%80%E5%B7%A7/">技巧<sup>1</sup></a><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验<sup>1</sup></a><a href="/tags/%E9%9D%B6%E5%9C%BA/">靶场<sup>3</sup></a><a href="/tags/VulFocus/">VulFocus<sup>3</sup></a><a href="/tags/CTF%E5%B9%B3%E5%8F%B0/">CTF平台<sup>6</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/">面试<sup>1</sup></a><a href="/tags/%E5%8D%8E%E4%B8%BA/">华为<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验<sup>1</sup></a><a href="/tags/GZCTF/">GZCTF<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>2</sup></a><a href="/tags/Ubuntu/">Ubuntu<sup>1</sup></a><a href="/tags/CentOS/">CentOS<sup>1</sup></a></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="item"><a href="/archives/2025/08/"><span class="date">2025/08</span><div class="count-group"><span class="count">7</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2025/06/"><span class="date">2025/06</span><div class="count-group"><span class="count">2</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2025/05/"><span class="date">2025/05</span><div class="count-group"><span class="count">12</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2025/01/"><span class="date">2025/01</span><div class="count-group"><span class="count">6</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/2024/12/"><span class="date">2024/12</span><div class="count-group"><span class="count">9</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/"><span class="date">全部文章</span><div class="count-group"><span class="count">36</span><span class="unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude fas fa-circle-half-stroke"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude fas fa-arrows-left-right-to-line"></i></span></div><div class="console-btn-item" id="consoleKeyboard" onclick="sco.switchKeyboard()"><span class="keyboardSwitch" title="键盘快捷键"><i class="solitude fas fa-keyboard"></i></span></div><div class="console-btn-item" id="consoleMusic" onclick="sco.musicToggle()"><span class="music-switch" title="音乐开关"><i class="solitude fas fa-compact-disc"></i></span></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"><span class="commentBarrage"><i class="solitude fas fa-comment"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/recentcomments/"><div class="headline">评论</div><div class="length-num" id="waline_allcount"><i class="solitude fas fa-spinner fa-spin"></i></div><script pjax="pjax">(async () => {
+  await fetch('https://waline.api.devnest.top//api/comment?type=count', {method: 'GET'}).then(async res => res.json())
+    .then(async data => {
+      document.querySelector('#waline_allcount').innerHTML = data.data
+    })
+})()</script></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/StellarByte" title="LLM"><img class="nolazyload back-menu-item-icon" src="fas fa-brands fa-battle-net" alt="LLM"><span class="back-menu-item-text">LLM</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/CCSP_BootCamp" title="网安训练营"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="网安训练营"><span class="back-menu-item-text">网安训练营</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hxcodewarrior.github.io" title="个人博客"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="个人博客"><span class="back-menu-item-text">个人博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">小组件</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="友链申请"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链申请"><span class="back-menu-item-text">友链申请</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链状态"><span class="back-menu-item-text">友链状态</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitcalendar.api.devnest.top/api/?user=" title="Github热力图"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="Github热力图"><span class="back-menu-item-text">Github热力图</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  fas fa-chart-pie"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml"><i class="solitude  fas fa-link"></i><span>申请友链</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  fas fa-user-group"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="solitude  fas fa-gift"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/subscribe/"><i class="solitude  fas fa-rss"></i><span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/equipment/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/footmap/"><i class="solitude  fas fa-map-marked-alt"></i><span>游天下</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-user"></i><span>关于我</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  fas fa-comments"></i><span>留言板</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/">生活<sup>1</sup></a><a href="/tags/CTF/">CTF<sup>16</sup></a><a href="/tags/ISCC/">ISCC<sup>5</sup></a><a href="/tags/MISC/">MISC<sup>4</sup></a><a href="/tags/Writeup/">Writeup<sup>5</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/">教程<sup>9</sup></a><a href="/tags/Solitude%E4%B8%BB%E9%A2%98/">Solitude主题<sup>1</sup></a><a href="/tags/MOBILE/">MOBILE<sup>1</sup></a><a href="/tags/REVERSE/">REVERSE<sup>1</sup></a><a href="/tags/WEB/">WEB<sup>4</sup></a><a href="/tags/PWN/">PWN<sup>1</sup></a><a href="/tags/CV/">CV<sup>1</sup></a><a href="/tags/Crypto/">Crypto<sup>2</sup></a><a href="/tags/%E7%AB%9E%E8%B5%9B/">竞赛<sup>4</sup></a><a href="/tags/%E5%9B%BD%E5%86%85%E7%AB%9E%E8%B5%9B/">国内竞赛<sup>4</sup></a><a href="/tags/%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81/">曼彻斯特编码<sup>1</sup></a><a href="/tags/SSRF/">SSRF<sup>1</sup></a><a href="/tags/Transformer/">Transformer<sup>7</sup></a><a href="/tags/LLM/">LLM<sup>7</sup></a><a href="/tags/SSTI/">SSTI<sup>1</sup></a><a href="/tags/%E8%B5%9B%E5%90%8E%E6%80%BB%E7%BB%93/">赛后总结<sup>1</sup></a><a href="/tags/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">内存取证<sup>2</sup></a><a href="/tags/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">内存取证工具<sup>2</sup></a><a href="/tags/Tools/">Tools<sup>2</sup></a><a href="/tags/%E6%B3%A8%E5%85%A5%E7%B1%BB%E6%BC%8F%E6%B4%9E/">注入类漏洞<sup>1</sup></a><a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%AE%89%E5%85%A8/">模板引擎安全<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E5%A4%A7%E4%BD%BF/">校园大使<sup>2</sup></a><a href="/tags/%E6%8A%80%E5%B7%A7/">技巧<sup>1</sup></a><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验<sup>1</sup></a><a href="/tags/%E9%9D%B6%E5%9C%BA/">靶场<sup>3</sup></a><a href="/tags/VulFocus/">VulFocus<sup>3</sup></a><a href="/tags/CTF%E5%B9%B3%E5%8F%B0/">CTF平台<sup>6</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/">面试<sup>1</sup></a><a href="/tags/%E5%8D%8E%E4%B8%BA/">华为<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/">面试经验<sup>1</sup></a><a href="/tags/GZCTF/">GZCTF<sup>4</sup></a><a href="/tags/Linux/">Linux<sup>2</sup></a><a href="/tags/Ubuntu/">Ubuntu<sup>1</sup></a><a href="/tags/CentOS/">CentOS<sup>1</sup></a></div></div><span class="sidebar-menu-item-title">网站信息</span><div class="webinfo"><div class="webinfo-item"><div class="item-name">全站字数 :</div><div class="item-count">64.5k</div></div></div></div></div><!-- keyboard--><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keyboardList"><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">K</div></div><div class="keyContent"><div class="content">关闭快捷菜单</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">A</div></div><div class="keyContent"><div class="content">打开控制台</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">L</div></div><div class="keyContent"><div class="content">打开友链</div></div></div><div class="keyboardItem"><div class="keyGroup"><div class="key">Shift</div><div class="key">R</div></div><div class="keyContent"><div class="content">申请友链</div></div></div></div></div><script>const keyboard_addKeyup = (e) => {
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.remove('show');
+    }
+}
+
+const keyboard_addKeydown = (e) => {
+    const keyboards = [{"name":"关闭快捷菜单","key":"K","func":"keyboard"},{"name":"打开控制台","key":"A","sco":"showConsole"},{"name":"播放/暂停音乐","key":"M","sco":"musicToggle"},{"name":"打开友链","key":"L","url":"/links/"},{"name":"申请友链","key":"R","url":"https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml"}];
+    if (e.key === 'Shift') {
+        document.getElementById('keyboard-tips').classList.add('show');
+    }
+
+    for (let i = 0; i < keyboards.length; i++) {
+        if (keyboards[i].url) {
+            if (keyboards[i].url.startsWith('http')) {
+                if (e.key === keyboards[i].key) {
+                    window.open(keyboards[i].url);
+                }
+            } else {
+                if (e.key === keyboards[i].key) {
+                    pjax.loadUrl(keyboards[i].url);
+                }
+            }
+        } else if (keyboards[i].sco) {
+            if (e.key === keyboards[i].key) {
+                sco[keyboards[i].sco]();
+            }
+        } else if (keyboards[i].func) {
+            if (e.key === keyboards[i].key) {
+                window[keyboards[i].func]();
+            }
+        }
+    }
+}
+
+function openKeyboard() {
+
+    window.addEventListener('keyup', keyboard_addKeyup);
+
+    window.addEventListener('keydown', keyboard_addKeydown);
+}
+function closeKeyboard() {
+
+    window.removeEventListener('keyup', keyboard_addKeyup);
+
+    window.removeEventListener('keydown', keyboard_addKeydown);
+}
+
+var sco_keyboards = localStorage.getItem('keyboard') === 'true'
+if (sco_keyboards) {
+    openKeyboard();
+    let keyboard = document.getElementById('consoleKeyboard');
+    keyboard?.classList.add('on');
+}</script><!-- righhtside--><div class="needEndHide" id="rightside"><div class="rs_hide"><button class="translate" type="button" title="简繁转换">简</button><button class="mode" type="button" title="显示模式切换" onclick="sco.switchDarkMode()"><i class="fas fa-circle-half-stroke"></i></button><button class="aside pc" type="button" title="侧边栏" onclick="sco.switchHideAside()"><i class="fas fa-arrows-alt-h"></i></button><button class="keyboard pc" type="button" title="键盘快捷键" onclick="sco.switchKeyboard()"><i class="fas fa-keyboard"></i></button></div><div class="rs_show"><button class="config" type="button" title="扩展" onclick="document.querySelector(&quot;.rs_hide&quot;).classList.toggle(&quot;show&quot;)"><i class="fas fa-gear fa-spin"></i></button><button class="comment" type="button" title="评论" onclick="sco.scrollTo('post-comment')"><i class="fas fa-comment"></i></button><button class="barrage pc" type="button" title="弹" onclick="sco.switchCommentBarrage()"><span>弹</span></button><button class="top" type="button" title="返回顶部" onclick="sco.toTop()"><i class="fas fa-arrow-up"></i><span id="percent">0</span></button></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon solitude fas fa-bars-progress"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/StellarByte" title="LLM"><img class="nolazyload back-menu-item-icon" src="fas fa-brands fa-battle-net" alt="LLM"><span class="back-menu-item-text">LLM</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/CCSP_BootCamp" title="网安训练营"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="网安训练营"><span class="back-menu-item-text">网安训练营</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hxcodewarrior.github.io" title="个人博客"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="个人博客"><span class="back-menu-item-text">个人博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">小组件</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="友链申请"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链申请"><span class="back-menu-item-text">友链申请</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="友链状态"><span class="back-menu-item-text">友链状态</span></a><a class="back-menu-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://gitcalendar.api.devnest.top/api/?user=" title="Github热力图"><img class="nolazyload back-menu-item-icon" src="/img/favicon.ico" alt="Github热力图"><span class="back-menu-item-text">Github热力图</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">ByteWyrm</span><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Transformer—KVCache详解</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  fas fa-chart-pie"></i><span>统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml"><i class="solitude  fas fa-link"></i><span>申请友链</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  fas fa-user-group"></i><span>友情链接</span></a></li><li><a class="site-page child" href="javascript:travelling()" rel="external nofollow noreferrer"><i class="solitude  fas fa-gift"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/subscribe/"><i class="solitude  fas fa-rss"></i><span>RSS订阅</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/equipment/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/footmap/"><i class="solitude  fas fa-map-marked-alt"></i><span>游天下</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-user"></i><span>关于我</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  fas fa-comments"></i><span>留言板</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" title=""><i class="solitude fas fa-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="solitude fas fa-dice-d6"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer" title="搜索"><i class="solitude fas fa-magnifying-glass"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);" rel="external nofollow noreferrer"><label><i class="left"></i><i class="center"></i><i class="right"></i></label></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/background/essay/Transformer%E2%80%94KVCache%E8%AF%A6%E8%A7%A3.jpg" alt="Transformer—KVCache详解"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/LLM/">LLM</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Transformer/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>Transformer</span></a><a class="post-meta__tags" href="/tags/LLM/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>LLM</span></a></div></div></div></div><h1 class="post-title">Transformer—KVCache详解</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="发布于 2025-08-13 12:16:10"><i class="post-meta-icon solitude fas fa-calendar-days"></i><time datetime="2025-08-13T04:16:10.000Z">2025-08-13T04:16:10.000Z</time></span><span class="post-meta-date" title="最后更新于 2025-08-13 12:16:10"><i class="post-meta-icon solitude fas fa-arrows-rotate"></i><time datetime="2025-08-13T04:16:10.000Z">2025-08-13T04:16:10.000Z</time></span><span class="post-meta-wordcount"><i class="post-meta-icon solitude fas fa-file-word" title="文章字数"></i><span class="word-count">0</span><span class="post-meta-separator"></span><i class="post-meta-icon solitude fas fa-clock" title="阅读耗时"></i><span>1 分钟</span></span><a class="post-meta-pv" href="/post/9ce26495/" title="文章热度"><i class="post-meta-icon solitude fas fa-fire-flame-curved"></i><span class="waline-pageview-count"><i class="solitude fas fa-spinner fa-spin"></i></span></a><span class="post-meta-commentcount" title="评论数" onclick="sco.scrollTo('post-comment')"><i class="solitude fas fa-comment"></i><a href="/post/9ce26495/#post-comment"><span class="waline-comment-count"><i class="solitude fas fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content article-container"><link rel="stylesheet external nofollow noreferrer" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><div class="post-copyright__author_img"><img class="post-copyright__author_img_front" src="/img/Logo-48x48.ico"></div><div class="post-copyright__author_name">ByteWyrm</div><div class="post-copyright__author_desc">零基础入门KVCache，深入浅出讲解Transformer核心模块的工作原理，包括KVCache的原理、实现和优化等。</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div><div class="post-reward"><div class="reward-button" title="赞赏作者" onclick="AddRewardMask()"><i class="solitude fas fa-heart"></i>赞赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">Thanks for your appreciation. / 感谢您的赞赏</span><ul class="reward-group"><li class="reward-item"><a href="/"><img class="post-qr-code-img nolazyload" src="/img/sponsor/weixin.png" alt="微信" style="border-color: var(--efu-black)"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/"><img class="post-qr-code-img nolazyload" src="/img/sponsor/alipay.jpg" alt="支付宝" style="border-color: var(--efu-black)"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/"><div class="reward-text">赞赏名单</div><div class="reward-dec">Because of your support, I realize the value of writing articles. / 由于您的支持，我才能够实现写作的价值。</div></a></ul></div></div><script>function RemoveRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "none";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "none";
+    }
+}
+
+function AddRewardMask() {
+    let rewardMainElements = document.querySelectorAll(".reward-main");
+    let quitBoxElement = document.querySelector("#quit-box");
+
+    rewardMainElements.forEach(element => {
+        element.style.display = "flex";
+    });
+
+    if (quitBoxElement) {
+        quitBoxElement.style.display = "flex";
+    }
+}</script><div class="reward-link mode"><a class="reward-link-button" href="/rss2.xml,/atom.xml"><i class="solitude fas fa-seedling"></i>订阅</a></div></div></div><div class="social-share"><a class="social-share-ico icon-qq" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9jb25uZWN0LnFxLmNvbS93aWRnZXQvc2hhcmVxcS9pbmRleC5odG1sP3VybD1odHRwcyUzQSUyRiUyRmJsb2cuZGV2bmVzdC50b3AlMkZwb3N0JTJGOWNlMjY0OTUlMkYmdGl0bGU9VHJhbnNmb3JtZXIlRTIlODAlOTRLVkNhY2hlJUU4JUFGJUE2JUU4JUE3JUEzJmRlc2M9dW5kZWZpbmVkJnN1bW1hcnk9dW5kZWZpbmVkJnNpdGU9VHJhbnNmb3JtZXIlRTIlODAlOTRLVkNhY2hlJUU4JUFGJUE2JUU4JUE3JUEzJnBpY3M9JTJGaW1nJTJGYmFja2dyb3VuZCUyRmVzc2F5JTJGVHJhbnNmb3JtZXIlRTIlODAlOTRLVkNhY2hlJUU4JUFGJUE2JUU4JUE3JUEzLmpwZw" title="分享到QQ"><i class="solitude fab fa-qq"></i></a><a class="social-share-ico icon-weibo" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cDovL3NlcnZpY2Uud2VpYm8uY29tL3NoYXJlL3NoYXJlLnBocD91cmw9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjljZTI2NDk1JTJGJnRpdGxlPVRyYW5zZm9ybWVyJUUyJTgwJTk0S1ZDYWNoZSVFOCVBRiVBNiVFOCVBNyVBMyZwaWM9JTJGaW1nJTJGYmFja2dyb3VuZCUyRmVzc2F5JTJGVHJhbnNmb3JtZXIlRTIlODAlOTRLVkNhY2hlJUU4JUFGJUE2JUU4JUE3JUEzLmpwZw" title="分享到微博"><i class="solitude fab fa-weibo"></i></a><a class="social-share-ico icon-twitter" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly90d2l0dGVyLmNvbS9pbnRlbnQvdHdlZXQ_dXJsPWh0dHBzJTNBJTJGJTJGYmxvZy5kZXZuZXN0LnRvcCUyRnBvc3QlMkY5Y2UyNjQ5NSUyRiZ0ZXh0PVRyYW5zZm9ybWVyJUUyJTgwJTk0S1ZDYWNoZSVFOCVBRiVBNiVFOCVBNyVBMw" title="分享到Twitter"><i class="solitude fab fa-twitter"></i></a><a class="social-share-ico icon-facebook" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlci9zaGFyZXIucGhwP3U9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjljZTI2NDk1JTJG" title="分享到Facebook"><i class="solitude fab fa-facebook"></i></a><a class="social-share-ico icon-telegram" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly90Lm1lL3NoYXJlL3VybD91cmw9aHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjljZTI2NDk1JTJGJnRleHQ9VHJhbnNmb3JtZXIlRTIlODAlOTRLVkNhY2hlJUU4JUFGJUE2JUU4JUE3JUEz" title="分享到Telegram"><i class="solitude fab fa-telegram"></i></a><a class="social-share-ico icon-whatsapp" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ_dGV4dD1UcmFuc2Zvcm1lciVFMiU4MCU5NEtWQ2FjaGUlRTglQUYlQTYlRTglQTclQTMgaHR0cHMlM0ElMkYlMkZibG9nLmRldm5lc3QudG9wJTJGcG9zdCUyRjljZTI2NDk1JTJG" title="分享到WhatsApp"><i class="solitude fab fa-whatsapp"></i></a><a class="social-share-ico icon-linkedin" target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL3NoYXJlQXJ0aWNsZT9taW5pPXRydWUmdXJsPWh0dHBzJTNBJTJGJTJGYmxvZy5kZXZuZXN0LnRvcCUyRnBvc3QlMkY5Y2UyNjQ5NSUyRiZ0aXRsZT1UcmFuc2Zvcm1lciVFMiU4MCU5NEtWQ2FjaGUlRTglQUYlQTYlRTglQTclQTMmc3VtbWFyeT11bmRlZmluZWQmc291cmNlPVRyYW5zZm9ybWVyJUUyJTgwJTk0S1ZDYWNoZSVFOCVBRiVBNiVFOCVBNyVBMw" title="分享到LinkedIn"><i class="solitude fab fa-linkedin"></i></a><div class="social-share-ico icon-link" onclick="utils.copy(&quot;https://blog.devnest.top/post/9ce26495/&quot;)" title="复制文章链接"><i class="solitude fas fa-link"></i></div><div class="social-share-ico icon-qrcode" title="使用手机扫码阅读这篇文章"><i class="solitude fas fa-qrcode"></i><div class="share-main"><div class="share-main-all"><div id="qrcode"></div><div class="reward-dec">使用手机扫码阅读这篇文章</div></div></div><script pjax="">typeof QRCode === 'function' && new QRCode(document.getElementById("qrcode"), {
+    text: 'https://blog.devnest.top/post/9ce26495/',
+    correctLevel : QRCode.CorrectLevel.L
+});
+window.addEventListener('DOMContentLoaded', () => {
+    new QRCode(document.getElementById("qrcode"), {
+        text: 'https://blog.devnest.top/post/9ce26495/',
+        correctLevel : QRCode.CorrectLevel.L
+    });
+});
+</script></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpoLWhhbnM">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">ByteWyrm's Blog</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Transformer/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>Transformer<span class="tagsPageCount">7</span></span></a><a class="post-meta__tags" href="/tags/LLM/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>LLM<span class="tagsPageCount">7</span></span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/303f8662/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Transformer—位置编码详解</div></div></a></div><div class="next-post pull-right"><a href="/post/d4b74a75/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Transformer——归一化详解</div></div></a></div></nav>
+        <div class="relatedPosts">
+            <div class="headline">
+                <i class="solitude fas fa-star"></i>
+                <span>喜欢这篇的人也看了</span>
+                <div class="relatedPosts-link">
+                    <a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a>
+                </div>
+            </div>
+            <div class="relatedPosts-list">
+            <div>
+                <a href="/post/73649d23/" title="Transformer—嵌入层详解">
+                    <img class="cover" src= "" data-lazy-src="/img/background/essay/Transformer%E2%80%94%E5%B5%8C%E5%85%A5%E5%B1%82%E8%AF%A6%E8%A7%A3.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">Transformer—嵌入层详解</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/post/2f9b0a/" title="Transformer—多头自注意力机制详解">
+                    <img class="cover" src= "" data-lazy-src="/img/background/essay/Transformer%E2%80%94%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">Transformer—多头自注意力机制详解</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/post/f6514c02/" title="Transformer—门控多层感知机详解">
+                    <img class="cover" src= "" data-lazy-src="/img/background/essay/Transformer%E2%80%94%E9%97%A8%E6%8E%A7%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E8%AF%A6%E8%A7%A3.jpg" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">Transformer—门控多层感知机详解</div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/post/8204ce2b/" title="Transformer架构介绍">
+                    <img class="cover" src= "" data-lazy-src="/img/background/essay/Transformer%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D.png" alt="cover">
+                    <div class="content is-center">
+                        <div class="title">Transformer架构介绍</div>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude fas fa-comment"></i><span> 评论</span><span class="count"><span class="waline-comment-count"><i class="solitude fas fa-spinner fa-spin"></i></span></span><a class="plxycss" href="/comment/"><i class="solitude fas fa-file-lines"></i><span>&nbsp;评论协议</span></a></div></div><div class="comment-wrap"><div id="waline-wrap"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" onclick="sco.changeWittyWord()"></div></div></div><div class="avatar"><img alt="头像" src="/img/static/avatar.jpg"></div><div class="description">ByteWyrm的博客,在代码与技术的世界探索,记住来时路，方知去何处！</div><div class="bottom-group"><span class="left"><div class="name">ByteWyrm</div><div class="desc">只有迎风，风筝才能飞得更高。</div></span><div class="social-icons is-center"><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior" title="Github"><i class="solitude  fab fa-github"></i></a><a class="social-icon" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/3537114050332802" title="Bilibili"><i class="solitude  fab fa-bilibili"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fas fa-map"></i><span>最近发布</span></div><div class="aside-list"><a class="aside-list-item" href="/post/73649d23/" title="Transformer—嵌入层详解"><div class="thumbnail"><img alt="Transformer—嵌入层详解" src="/img/background/essay/Transformer%E2%80%94%E5%B5%8C%E5%85%A5%E5%B1%82%E8%AF%A6%E8%A7%A3.jpg"></div><div class="content"><span class="title" href="/post/73649d23/" title="Transformer—嵌入层详解">Transformer—嵌入层详解</span><span class="categories" href="/post/73649d23/">LLM</span></div></a><a class="aside-list-item" href="/post/2f9b0a/" title="Transformer—多头自注意力机制详解"><div class="thumbnail"><img alt="Transformer—多头自注意力机制详解" src="/img/background/essay/Transformer%E2%80%94%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3.jpg"></div><div class="content"><span class="title" href="/post/2f9b0a/" title="Transformer—多头自注意力机制详解">Transformer—多头自注意力机制详解</span><span class="categories" href="/post/2f9b0a/">LLM</span></div></a><a class="aside-list-item" href="/post/f6514c02/" title="Transformer—门控多层感知机详解"><div class="thumbnail"><img alt="Transformer—门控多层感知机详解" src="/img/background/essay/Transformer%E2%80%94%E9%97%A8%E6%8E%A7%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E8%AF%A6%E8%A7%A3.jpg"></div><div class="content"><span class="title" href="/post/f6514c02/" title="Transformer—门控多层感知机详解">Transformer—门控多层感知机详解</span><span class="categories" href="/post/f6514c02/">LLM</span></div></a><a class="aside-list-item" href="/post/8204ce2b/" title="Transformer架构介绍"><div class="thumbnail"><img alt="Transformer架构介绍" src="/img/background/essay/Transformer%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D.png"></div><div class="content"><span class="title" href="/post/8204ce2b/" title="Transformer架构介绍">Transformer架构介绍</span><span class="categories" href="/post/8204ce2b/">LLM</span></div></a><a class="aside-list-item" href="/post/303f8662/" title="Transformer—位置编码详解"><div class="thumbnail"><img alt="Transformer—位置编码详解" src="/img/background/essay/Transformer%E2%80%94%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E8%AF%A6%E8%A7%A3.png"></div><div class="content"><span class="title" href="/post/303f8662/" title="Transformer—位置编码详解">Transformer—位置编码详解</span><span class="categories" href="/post/303f8662/">LLM</span></div></a></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>ByteWyrm</span></div><div class="footer-bar-description">Articles from ByteWyrm. / 文章来自 ByteWyrm</div><a class="footer-bar-link" href="/about/">Learn more / 了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior" title="Github"><i class="solitude  fab fa-github"></i></a><a class="deal_link" href="/bytewyrm@163.com" title="Mail"><i class="solitude  far fa-envelope"></i></a><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src= "" data-lazy-src="/img/static/avatar.jpg" alt="返回顶部"></div><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/3537114050332802" title="Bilibili"><i class="solitude  fab fa-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener external nofollow noreferrer" href="https://orcid.org/0009-0004-7928-8453" title="ORCID"><i class="solitude  fab fa-scroll"></i></a></div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="首页">首页</a><a class="footer-item" href="/circlefriends/" title="朋友圈">朋友圈</a><a class="footer-item" href="/message/" title="想对我说">想对我说</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://check-flinks.api.devnest.top/" title="友链状态">友链状态</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml" title="申请友链">申请友链</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.huaweicloud.com/" title="华为云">华为云</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://tongji.baidu.com/" title="百度统计">百度统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://v6.51.la/" title="51la统计">51la统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://umami.blog.devnest.top/" title="站点统计">站点统计</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://status.devnest.top/" title="站点检测">站点检测</a></div></div><div class="footer-group"><h3 class="footer-title">组织</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.foreverblog.cn/" title="十年之约">十年之约</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.blogplanet.cn/" title="博客星球">博客星球</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://bokequan.cn/" title="博客圈">博客圈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://boke.lu/" title="博客录">博客录</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.boyouquan.com/" title="博友圈">博友圈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.zhblogs.net/" title="集博栈">集博栈</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://icp.gov.moe/" title="萌国备案">萌国备案</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://www.blogsclub.org/" title="BlogsClub">BlogsClub</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://bf.zzxworld.com/" title="BlogFinder">BlogFinder</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" href="/about/#sponsor" title="赞助">赞助</a><a class="footer-item" href="/about/#award" title="打赏">打赏</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/" title="框架">框架</a><a class="footer-item" target="_blank" rel="noopener external nofollow noreferrer" href="https://solitude.js.org/" title="主题">主题</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/privacy/" title="隐私政策">隐私政策</a><a class="footer-item" href="/disclaimer/" title="免责声明">免责声明</a><a class="footer-item" href="/copyright/" title="版权协议">版权协议</a><a class="footer-item" href="/comment/" title="评论协议">评论协议</a></div></div><div class="footer-group"><div class="footer-title-group"><h3 class="footer-title">友链</h3><button class="random-friends-btn" onclick="randomLinksList()" title="友链"><i class="solitude fas fa-arrows-rotate"></i></button></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2024 - 2025 By&nbsp;<a class="footer-bar-link" href="/"><img class="author-avatar" src= "" data-lazy-src="/img/favicon.ico">ByteWyrm</a></div><div class="beian-group"><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://icp.gov.moe/?keyword=20257710" title="萌ICP备20257710号"><span class="beian-name">萌ICP备20257710号</span></a></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="https://blog.devnest.top/rss2.xml" alt="RSS订阅">RSS订阅</a><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/everfu/hexo-theme-solitude/blob/main/LICENSE" alt="License"><i class="solitude fas fa-copyright"></i><i class="solitude fab fa-creative-commons-by"></i><i class="solitude fab fa-creative-commons-nc"></i><i class="solitude fab fa-creative-commons-nd"></i></a><a class="footer-bar-link" target="_blank" rel="noopener external nofollow noreferrer" href="https://boringbay.com/" alt="boringbay"><img src= "" data-lazy-src="https://boringbay.com/api/badge/www.efu.me" alt="boringbay"></a></div></div></div><div class="comment-barrage needEndHide"></div></footer></div><!-- right_menu--><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="solitude fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="solitude fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="solitude fas fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-top"><i class="solitude fas fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="solitude fas fa-clone"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="solitude fas fa-clipboard"></i><span>粘贴文本</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="solitude fas fa-comment-medical"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="solitude far fa-window-maximize"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="solitude fas fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="solitude fas fa-clone"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="solitude fas fa-cloud-arrow-down"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search"><i class="solitude fas fa-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="solitude fas fa-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="solitude fas fa-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="solitude fas fa-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="solitude fas fa-clone"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-randomPost" onclick="toRandomPost()||rm.hideRightMenu()"><i class="solitude fas fa-tower-broadcast"></i><span>随机文章</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/categories/')||rm.hideRightMenu()"><i class="solitude fas fa-clone"></i><span>全部分类</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/tags/')||rm.hideRightMenu()"><i class="solitude fas fa-tags"></i><span>全部标签</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('https://github.com/HxCodeWarrior/Blog_Friends/issues/new?template=template_friend.yaml')||rm.hideRightMenu()"><i class="solitude fas fa-link"></i><span>申请友链</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-commentBarrage" onclick="sco.switchCommentBarrage()"><i class="solitude fas fa-comment"></i><span class="menu-commentBarrage-text">关闭热评</span></div><div class="rightMenu-item" id="menu-darkmode" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></div><div class="rightMenu-item" id="menu-translate"><i class="solitude fas fa-language"></i><span>轉為繁體</span></div></div></div><div id="rightmenu-mask"></div><!-- inject body--><div><script src="/js/utils.js?v=3.0.19"></script><script src="/js/main.js?v=3.0.19"></script><script src="/js/third_party/waterfall.min.js?v=3.0.19"></script><script src="https://fastly.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="https://fastly.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script><script src="https://fastly.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script src="https://fastly.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script><script src="https://fastly.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script><script src="/js/third_party/universe.min.js?v=3.0.19"></script><script>dark()
+</script><script src="/js/tw_cn.js?v=3.0.19"></script><script src="https://fastly.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://fastly.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script src="https://fastly.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.min.js"></script><script src="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=tencent&type=playlist&id=9499614106';</script><script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://fastly.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><script src="/js/right_menu.js?v=3.0.19"></script><meta name="360-site-verification" content="50f2453b93182aef84f82c0ffeee56ab"><meta name="msvalidate.01" content="AEB290A58354692E1628A88973985063"><meta name="bytedance-verification-code" content="4T+TvHRs7zE0qlJDFYNE"><script src="/custom/js/toutiao_search.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.9.0-rc.1/echarts.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><script src="https://open.lightxi.com/unpkg/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script><script src="/custom/js/calendar.js"></script><script src="/custom/js/custom.js"></script><script defer="" pjax="" src="/custom/js/history.js"></script><div class="js-pjax"><script>(() => {
+    let walineInitFunction = window.walineFn || null
+
+    function initWaline(initFn) {
+        const walineOptions = {
+            el: '#waline-wrap',
+            serverURL: 'https://waline.api.devnest.top/',
+            pageview: false,
+            dark: 'html[data-theme="dark"]',
+            path: window.location.pathname,
+            comment: true,
+            ...null
+        }
+        const walineInstance = initFn(walineOptions)
+        utils.addGlobalFn('pjax', () => walineInstance.destroy(), 'destroyWaline')
+        GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll('#comment .wl-content img:not(.wl-emoji)'))
+        sco.owoBig({
+            body: '.wl-emoji-popup',
+            item: '.wl-tab-wrapper button'
+        })
+    }
+
+    async function loadWaline() {
+        if (walineInitFunction) initWaline(walineInitFunction)
+        else {
+            await utils.getCSS('https://fastly.jsdelivr.net/npm/@waline/client@3.4.3/dist/waline.min.css')
+            const {init} = await import('https://fastly.jsdelivr.net/npm/@waline/client@3.4.3/dist/waline.min.js')
+            walineInitFunction = init || Waline.init
+            initWaline(walineInitFunction)
+            window.walineFn = walineInitFunction
+        }
+        true && barrageWaline()
+    }
+
+    if (true || true) {
+        if (true) utils.loadComment(document.getElementById('waline-wrap'), loadWaline)
+        else loadWaline()
+    } else window.loadTwoComment = loadWaline
+})()
+</script><script>async function barrageWaline() {
+    const url = new URL('https://waline.api.devnest.top//api/comment')
+    const params = {path: window.location.pathname, sortBy: 'insertedAt_asc'}
+    Object.entries(params).forEach(([key, value]) => url.searchParams.append(key, value))
+    await fetch(url).then(async res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
+        const data = await res.json();
+        const regex = /<img [^>]*class="wl-emoji"[^>]*>/;
+        const init = () => {
+            initializeCommentBarrage(data.data.data
+                .map(item => ({
+                    nick: item.nick,
+                    mailId: item.avatar,
+                    content: item.comment.replace(regex, ''),
+                    id: item.objectId
+                })))
+        }
+        if (typeof initializeCommentBarrage === "undefined") await utils.getScript('/js/third_party/barrage.min.js?v=3.0.19').then(init)
+        else init()
+    }).catch(error => console.error("An error occurred while fetching comments: ", error))
+}</script><script>mermaid.run();
+</script><script defer="" pjax="" src="https://fastly.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js"></script></div></div><script>const links = [{"name":"先知社区","link":"https://xz.aliyun.com"},{"name":"FreeBuf","link":"https://www.freebuf.com"},{"name":"安全客","link":"https://www.anquanke.com"},{"name":"腾讯玄武实验室","link":"https://xlab.tencent.com"},{"name":"知道创宇","link":"https://blog.knownsec.com"},{"name":"绿盟科技博客","link":"http://blog.nsfocus.net"},{"name":"HackTheBox","link":"https://www.hackthebox.com"},{"name":"TryHackMe","link":"https://tryhackme.com"},{"name":"VulnHub","link":"https://www.vulnhub.com"},{"name":"Cybrary","link":"https://www.cybrary.it"},{"name":"Krebs on Security","link":"https://krebsonsecurity.com"},{"name":"Schneier on Security","link":"https://www.schneier.com"},{"name":"The Hacker News","link":"https://thehackernews.com"},{"name":"PortSwigger Blog","link":"https://portswigger.net/blog"},{"name":"CTF Wiki","link":"https://ctf-wiki.org"},{"name":"Nu1L Team","link":"https://nu1l.com"},{"name":"蓝莲花战队","link":"https://www.blue-lotus.net"},{"name":"r3kapig","link":"https://r3kapig.com"},{"name":"0ops","link":"https://blog.0ops.sjtu.cn"},{"name":"离别歌","link":"https://www.leavesongs.com"},{"name":"余弦","link":"https://evilcos.me"},{"name":"猪猪侠","link":"https://www.cnblogs.com/zpchcbd/"},{"name":"宁静致远","link":"https://payloads.online"},{"name":"安全小飞侠","link":"https://security.tencent.com/index.php/blog/author/35"},{"name":"瓦都剋","link":"https://evi1cg.me"},{"name":"渗透师","link":"https://www.shentoushi.top"},{"name":"安全小生","link":"https://chybeta.github.io"},{"name":"漏洞盒子","link":"https://www.vulbox.com/"},{"name":"长亭科技博客","link":"https://blog.chaitin.cn"}]
+const randomText = '点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：⌈ ${name} ⌋'
+function travelling() {
+    const link = links[utils.randomNum(links.length)];
+    Snackbar.show({
+        text: randomText.replace(/\$\{name}/,link.name),
+        duration: 8000,
+        pos: 'top-center',
+        actionText: '前往',
+        onActionClick: function(element) {
+            element.style.opacity = 0;
+            window.open(link.link, '_blank');
+        }
+    });
+}
+</script><script>function randomLinksList() {
+    const linkcard = document.getElementById('friend-links-in-footer');
+    if (linkcard == null) return;
+
+    let data = '';
+    let linksCopy = [...links];
+    let count = Math.min(3, linksCopy.length);
+
+    for (let i = 0; i < count; i++) {
+        let index = utils.randomNum(linksCopy.length);
+        const {link, name} = linksCopy[index];
+        data += `<a class="footer-item" href="${link}" target="_blank" rel="noopener noreferrer nofollow">${name}</a>`;
+        linksCopy.splice(index, 1);
+    }
+
+    linkcard.innerHTML = data + '<a class="footer-item" href="/links/">更多</a>';
+}</script><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude fas fa-xmark"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/CTF/')">CTF</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/CTF%E7%AB%9E%E8%B5%9B/')">CTF竞赛</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8/')">网络空间安全</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/')">渗透测试</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/')">漏洞分析</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/WEB/')">WEB</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/REWERSE/')">REWERSE</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/MISC/')">MISC</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/PWN/')">PWN</a><a class="tag-list" href="javascript:void(0);" rel="external nofollow noreferrer" onclick="pjax.loadUrl('/tags/MISC/')">MISC</a></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=3.0.19"></script><!-- music--><div class="needEndHide" id="nav-music"><div id="nav-music-hoverTips" onclick="sco.musicToggle()">音乐已暂停</div><meting-js id="9499614106" server="qq" type="playlist" mutex="true" preload="none" theme="var(--efu-main)" data-lrctype="0" order="random" volume="0.8"></meting-js></div><!-- hexo injector body_end start -->
+  <script data-pjax="" src="/js/github_calendar.js"></script>
+  <script data-pjax="">
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://gitcalendar.api.devnest.top/api?user=HxCodeWarrior";
+            var git_color =['#ebedf0', '#a2f7af', '#6ce480', '#54ad63', '#469252', '#31753c', '#1f5f2a', '#13531f', '#084111', '#032b09', '#000000'];
+            var git_user ="HxCodeWarrior";
+            var parent_div_git = document.getElementById('github-calendar');
+            var git_div_html = '<div id="github_container"></div>
+<div id="github_loading" style="display: none;">
+<div class="spinner"></div>
+</div>
+';
+            if(parent_div_git && location.pathname =='/charts/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('github-calendar')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style>null</style><!-- hexo injector body_end end --><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"superSample":2,"position":"left","width":150,"height":300,"hOffset":20,"vOffset":-10},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.3,"opacityOnHover":0.3,"opacity":0.95},"log":false});</script></body></html>
+        <script>
+            const posts = ["post/73649d23/","post/2f9b0a/","post/f6514c02/","post/8204ce2b/","post/303f8662/","post/9ce26495/","post/d4b74a75/","post/e18327c3/","post/2f513db5/","post/93c507aa/","post/a442d699/","post/38669fb1/","post/5eb0d11d/","post/3de6084b/","post/38cf3f8b/","post/9d0d3265/","post/9eeba12b/","post/b3f9757/","post/83746943/","post/7f32bd2a/","post/5b408a6c/","post/7d1cd1d7/","post/e87d94d0/","post/2a40ac23/","post/c8174473/","post/4f79e208/","post/16d0b8f5/","post/c95f8404/","post/d8c7bf5a/","post/a456a6ae/","post/735f6e02/","post/9876484b/","post/bb81c461/","post/c39f6c79/","post/e85a88e9/","post/bb947332/"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>

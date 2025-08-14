@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://blog.devnest.top/categories/LLM/</loc>
+        <lastmod>2025-08-14T12:55:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.devnest.top/categories/Tools/%25E5%2586%2585%25E5%25AD%2598%25E5%258F%2596%25E8%25AF%2581/MISC/</loc>
         <lastmod>2025-06-03T04:10:36.450Z</lastmod>
         <changefreq>weekly</changefreq>
